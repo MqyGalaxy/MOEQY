@@ -1,3 +1,3 @@
-// build time:Wed Mar 29 2023 06:15:02 GMT+0800 (中国标准时间)
+// build time:Mon May 01 2023 01:42:53 GMT+0800 (中国标准时间)
 var e=document.getElementsByClassName("accordion");var t;for(t=0;t<e.length;t++){e[t].onclick=function(){this.classList.toggle("active");var e=this.nextElementSibling;if(e.style.maxHeight){e.style.maxHeight=null}else{e.style.maxHeight=e.scrollHeight+"px"}}}
 //rebuild by hrmmi 
