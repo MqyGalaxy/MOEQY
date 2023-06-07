@@ -2,45 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://moeqy.com/img/icon/iconfont.json</loc>
+    <loc>http://moeqy.com/announcement/20220212/post-1/</loc>
     
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/announcement/20221216/post-1/</loc>
-    
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/announcement/20220430/post-1/</loc>
-    
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/announcement/20220430/post-2/</loc>
-    
-    <lastmod>2023-03-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/announcement/20220325/post-1/</loc>
-    
-    <lastmod>2023-03-23</lastmod>
+    <lastmod>2023-06-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,16 +13,61 @@
   <url>
     <loc>http://moeqy.com/announcement/20220301/post-1/</loc>
     
-    <lastmod>2023-03-23</lastmod>
+    <lastmod>2023-06-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://moeqy.com/announcement/20220212/post-1/</loc>
+    <loc>http://moeqy.com/announcement/20220325/post-1/</loc>
     
-    <lastmod>2023-03-23</lastmod>
+    <lastmod>2023-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/announcement/20220430/post-1/</loc>
+    
+    <lastmod>2023-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/announcement/20220430/post-2/</loc>
+    
+    <lastmod>2023-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/announcement/20221216/post-1/</loc>
+    
+    <lastmod>2023-06-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/img/icon/iconfont.json</loc>
+    
+    <lastmod>2023-06-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/img/icon/demo_index.html</loc>
+    
+    <lastmod>2023-06-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -139,7 +148,7 @@
 
   <url>
     <loc>http://moeqy.com/</loc>
-    <lastmod>2023-06-03</lastmod>
+    <lastmod>2023-06-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
