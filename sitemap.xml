@@ -2,9 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://moeqy.com/en/privacy/index.html</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/privacy/index.html</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/en/about/index.html</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/about/index.html</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://moeqy.com/help/index.html</loc>
+    
+    <lastmod>2023-06-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://moeqy.com/announcement/20220212/post-1/</loc>
     
-    <lastmod>2023-06-07</lastmod>
+    <lastmod>2023-06-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -110,24 +155,6 @@
   </url>
   
   <url>
-    <loc>http://moeqy.com/privacy/index.html</loc>
-    
-    <lastmod>2022-02-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/about/index.html</loc>
-    
-    <lastmod>2022-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://moeqy.com/help/markdown-1.html</loc>
     
     <lastmod>2021-02-25</lastmod>
@@ -136,19 +163,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://moeqy.com/help/index.html</loc>
-    
-    <lastmod>2021-02-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://moeqy.com/</loc>
-    <lastmod>2023-06-26</lastmod>
+    <lastmod>2023-06-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
