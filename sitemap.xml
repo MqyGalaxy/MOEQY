@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://moeqy.com/help/translate/index.html</loc>
+    
+    <lastmod>2023-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://moeqy.com/en/privacy/index.html</loc>
     
     <lastmod>2023-06-28</lastmod>
@@ -32,15 +41,6 @@
     <loc>http://moeqy.com/about/index.html</loc>
     
     <lastmod>2023-06-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://moeqy.com/help/index.html</loc>
-    
-    <lastmod>2023-06-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -154,19 +154,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://moeqy.com/help/markdown-1.html</loc>
-    
-    <lastmod>2021-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://moeqy.com/</loc>
-    <lastmod>2023-06-28</lastmod>
+    <lastmod>2023-07-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
