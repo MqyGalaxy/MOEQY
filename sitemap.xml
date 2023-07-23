@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://moeqy.com/en/help/translate/index.html</loc>
+    
+    <lastmod>2023-07-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://moeqy.com/help/translate/index.html</loc>
     
     <lastmod>2023-06-28</lastmod>
@@ -157,7 +166,7 @@
 
   <url>
     <loc>http://moeqy.com/</loc>
-    <lastmod>2023-07-10</lastmod>
+    <lastmod>2023-07-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
