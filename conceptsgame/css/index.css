@@ -58,7 +58,7 @@ a:-webkit-any-link {
 }
 .layout-title {
     height: 100vh;
-    background: #000 url(img/background.png) repeat center center/0.23rem 0.23rem;
+    background: #000 url(./img/background.png) repeat center center/0.23rem 0.23rem;
     overflow: hidden;
 }
 .page {
