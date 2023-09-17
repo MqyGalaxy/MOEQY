@@ -14,6 +14,9 @@ html, body {
 	display: block;
 	box-sizing: border-box;
 }
+html body {
+    font-family: sans-serif,NospzGothicMoe,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
 a, a:link, a:visited {
     color: #3778e5;
     text-decoration: none;
