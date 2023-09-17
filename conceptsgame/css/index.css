@@ -58,7 +58,7 @@ a:-webkit-any-link {
 }
 .layout-title {
     height: 100vh;
-    background: #000 url(./img/background.png) repeat center center/0.23rem 0.23rem;
+    background: #000 url(../img/background.png) repeat center center/0.23rem 0.23rem;
     overflow: hidden;
 }
 .page {
@@ -83,7 +83,7 @@ a:-webkit-any-link {
 .half-window .title-img {
     width: 70%;
     position: relative;
-    background-image: url(/img/HuTao.webp);
+    background-image: url(../img/HuTao.webp);
     background: linear-gradient(10deg);
     background-position: center;
     background-repeat: no-repeat;
