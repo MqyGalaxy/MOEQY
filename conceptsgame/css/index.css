@@ -5,6 +5,7 @@ body {
     padding: 0;
     font-size: .24rem;
     overflow-y: overlay;
+    overflow-x: hidden!important;
 }
 html, body {
 	height: 100%;
@@ -13,9 +14,6 @@ html, body {
     padding: 0;
 	display: block;
 	box-sizing: border-box;
-}
-html body {
-    font-family: sans-serif,NospzGothicMoe,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 a, a:link, a:visited {
     color: #3778e5;
@@ -58,10 +56,10 @@ a:-webkit-any-link {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #000 url(../img/background.png) repeat center center/0.23rem 0.23rem;
 }
 .layout-title {
     height: 100vh;
-    background: #000 url(../img/background.png) repeat center center/0.23rem 0.23rem;
     overflow: hidden;
 }
 .page {
@@ -79,6 +77,9 @@ a:-webkit-any-link {
     overflow:hidden;
     left: 0;
     top: 0;
+    animation: linear move-right;
+    animation-duration: auto;
+    animation-timeline: scroll();
 }
 .half-window .window {
     width: 30%;
@@ -101,6 +102,12 @@ a:-webkit-any-link {
 }
 .index-LOGO {
     width: 55%;
+}
+.index-title {
+    position: absolute;
+    animation: linear move-left;
+    animation-duration: auto;
+    animation-timeline: scroll();
 }
 .site-title {
     color: #fff;
@@ -154,4 +161,38 @@ footer {
 		font-size: 28px;
 		margin: 20px 15px 20px 15px;
 	}
+}
+
+/* 视差滚动 */
+@keyframes move-background-down {
+    from {
+      background-position: 50% 80%;
+    }
+    to {
+      background-position: 50% 0%;
+    }
+  }
+@keyframes move-background-up {
+    from {
+        background-position: 50% 300%;
+    }
+    to {
+        background-position: 50% 50%;
+    }
+}
+@keyframes move-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+@keyframes move-right {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
