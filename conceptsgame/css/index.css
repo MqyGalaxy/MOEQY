@@ -7,6 +7,9 @@ body {
     overflow-y: overlay;
     overflow-x: hidden!important;
 }
+html body, html #firstHeading {
+    font-family: sans-serif,NospzGothicMoe,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
 html, body {
 	height: 100%;
 	width: 100%;
