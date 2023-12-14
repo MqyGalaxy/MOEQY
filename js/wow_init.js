@@ -1,3 +1,3 @@
-// build time:Sun Nov 26 2023 07:51:56 GMT+0800 (中国标准时间)
+// build time:Fri Dec 15 2023 06:22:00 GMT+0800 (中国标准时间)
 wow=new WOW({boxClass:"wow",animateClass:"animate__animated",offset:0,mobile:false,live:true});wow.init();
 //rebuild by hrmmi 
