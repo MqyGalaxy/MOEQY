@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.moeqy.com/chanpin/20240210/post-1/</loc>
+    
+    <lastmod>2024-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.moeqy.com/products/20240210/post-1/</loc>
+    
+    <lastmod>2024-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.moeqy.com/gonggao/20231110/post-1/</loc>
     
     <lastmod>2023-12-14</lastmod>
@@ -220,7 +238,7 @@
 
   <url>
     <loc>http://www.moeqy.com/</loc>
-    <lastmod>2023-12-28</lastmod>
+    <lastmod>2024-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
