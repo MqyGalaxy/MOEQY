@@ -1,3 +1,3 @@
-// build time:Tue Jul 08 2025 21:42:21 GMT+0800 (中国标准时间)
+// build time:Tue Jul 08 2025 21:47:19 GMT+0800 (中国标准时间)
 var e=document.getElementById("vdo-botton");var n=document.getElementById("vdo-home");var o=document.getElementById("modal");var t=document.getElementById("modalButton");e.onclick=function l(){n.style.display="flex"};n.onclick=function d(){n.style.display="none"};t.onclick=function c(){console.log("点击了按钮");o.style.display="none"};
 //rebuild by hrmmi 
