@@ -24,6 +24,21 @@ npm run preview
 
 `dist/` 是可部署的完整静态网站，可用于 GitHub Pages、Cloudflare Pages 或其他静态托管服务。构建命令为 `npm run build`，输出目录为 `dist`。原有 `CNAME` 已保留。网站没有在本次重构中发布。
 
+## GitHub Pages 发布
+
+仓库为 `MqyGalaxy/MOEQY`，项目文件直接位于仓库根目录。`.github/workflows/deploy.yml` 在推送到 `main` 时自动执行，也支持在 Actions 页面手动运行。流程使用 Node.js 22，依次安装锁定依赖、检查类型、构建、校验生成页面，最后将 `dist/` 部署到 GitHub Pages。`npm run build` 会自动执行 `postbuild`，生成 `.nojekyll` 并处理历史 404 地址。无需提交 `dist/` 或配置个人访问令牌。
+
+首次发布前完成以下设置：
+
+1. 打开仓库 **Settings → Pages**，将 **Build and deployment → Source** 设置为 **GitHub Actions**。
+2. 将 **Custom domain** 设置为 `www.moeqy.com`。如果该域名仍绑定在旧仓库，需要先从旧仓库解除绑定。
+3. 在域名服务商确认 `www` 的 CNAME 记录指向 `MqyGalaxy.github.io`，目标不包含 `/MOEQY`。等待域名检查和证书签发完成后启用 **Enforce HTTPS**。
+4. 提交并推送部署配置到 `main`，在仓库 **Actions** 中查看 `Deploy Astro to GitHub Pages` 的运行结果。
+
+`astro.config.mjs` 的 `site` 和 `public/CNAME` 已对应 `www.moeqy.com`。这是自定义域名根路径部署，不添加 `base: '/MOEQY'`。当前页面包含根路径链接和资源地址，不能直接将配置改为仓库子路径并期待所有链接自动适配。
+
+以上文件仅配置部署流程；GitHub 仓库设置和 DNS 需要单独完成。
+
 ## 内容与交互
 
 - 中文、英文首页，以及关于、隐私、翻译协助页面。
