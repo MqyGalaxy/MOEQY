@@ -1,0 +1,24 @@
+---
+// One SVG box for every icon; no icon-font baselines or loading shifts.
+// Diagonal arrows retain the original straight-stem design.
+const glyphs = {
+  arrow: 'fanhui', play: '24gf-play', close: 'close', expand: 'window-down',
+  plus: 'plus-circle', minus: 'minus-circle', info: 'info-circle',
+  geometric: 'gengduo', acgn: 'weibiaoti-', video: 'shipin', game: 'youxi', more: 'more',
+  anime: 'erciyuan', appreciation: 'haopingganxie', mail: 'youxiang', announcement: 'gonggao',
+  github: 'github', bilibili: 'bilibili-fill', music: 'wangyiyunyinle', language: 'yuyan',
+} as const;
+interface Props {
+  name: keyof typeof glyphs | 'heart' | 'pause';
+  direction?: 'left' | 'right' | 'up' | 'down' | 'up-right' | 'down-right';
+}
+const { name, direction = 'left' } = Astro.props;
+const diagonal = name === 'arrow' && (direction === 'up-right' || direction === 'down-right');
+---
+{name === 'heart'
+  ? <svg class="ui-icon" viewBox="0 0 34 28" aria-hidden="true" focusable="false"><use href="/img/icon/heart.svg#heart" /></svg>
+  : diagonal
+  ? <svg class:list={['ui-icon', direction === 'down-right' && 'ui-diagonal-down']} viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/icon/extensions.svg#icon-arrow-up-right" /></svg>
+  : name === 'pause'
+  ? <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href={`/img/icon/extensions.svg#icon-${name}`} /></svg>
+  : <svg class:list={['ui-icon', name === 'arrow' && `ui-arrow-${direction}`]} viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><use href={`/img/icon/library.svg#icon-${glyphs[name]}`} /></svg>}

@@ -1,0 +1,189 @@
+config:
+  title: MOEQY
+  description: 思い出の白い紙に、夢のかけらを描こう。
+language: 日本語
+helpTranslate: 翻訳に協力する
+menu:
+  home: ホーム
+  news: お知らせ
+  about: サイト紹介
+footer:
+  directory:
+    label: フッターナビゲーション
+    explore: MOEQYを知る
+    works: 作品・プロジェクト
+    support: ヘルプ・サービス
+    connect: フォロー・お問い合わせ
+  link:
+    friends: リンク
+    about: このサイトについて
+    privacy: プライバシーポリシー
+  content:
+    text1: このサイトは個人が運営しており、商用利用を目的としていません。
+    text2: '連絡先：mail#moeqy.com（#を@に置き換えてください）。'
+  copyright:
+    text1: ©MOEQY | moeqy.com | by MqyGalaxy
+    text2: Powered by
+    text3: ' '
+index:
+  tag:
+    media: メディア
+    product: 作品
+    news: お知らせ
+  title: MyBlogより、辰年の幸せをお祈りします！
+  text: 'MqyGalaxy|Blogの新春企画が始まりました。参加すると、辰年の看板娘「雪霞」と「玥炫」の立ち絵や、2024年の年賀イラストをご覧いただけます。2023年の振り返りで、ブログの一年の歩みもぜひご覧ください。出会いに感謝します！'
+  about:
+    title: MOEQYについて
+    text1: MOEQYはMqyGalaxyが制作・管理する個人サイトです。技術を学びながら、好きなものを共有しています。ACG（アニメ・漫画・ゲーム）、動画制作、MMD、Web制作などに取り組んでいます。
+    text2: MOEQYは作品を集めながら、一歩ずつの成長を記録する場所です。学んだことや作品を公開し、いろいろなことを皆さんと分かち合えたらと思っています。
+  detailed:
+    title: 好きなことと創作
+    menu:
+      acgn: ACGN
+      video: メディア
+      game: ゲーム
+      more: その他
+    acgn:
+      text: ACGNはAnime（アニメ）、Comics（漫画）、Games（ゲーム）、Novels（小説）の頭文字です。多彩なサブカルチャーが集まる世界であり、「二次元」はアニメや漫画、ゲームなどに描かれる世界の呼び名でもあります。MOEQYでは、こうした分野の創作を続けています。
+    video:
+      text: 個人メディアやネット動画は、情報を発信し、知るための身近な手段になりました。誰もが自由に創作できる場所で、新しい表現が生まれています。
+    game:
+      text: ゲームもまた、ひとつの芸術です。クリエイターが世界をつくり、その物語をプレイヤーが体験する、新しい表現のかたちになっています。
+    more:
+      text: MOEQYは、これからもさまざまなことを学んでいきます！
+  window:
+    text: プライバシーポリシーを2025年7月8日に更新しました。
+    link: 最新の内容
+    end: をご確認ください。
+  news: お知らせ
+  products: 作品一覧
+  works:
+    myblog:
+      title: MyBlog(MqyGalaxy|Blog)
+      text: MqyGalaxy|Blogは私の個人ブログです。さらに多くの記事やお知らせを掲載しています。
+    conceptsgame:
+      title: CONCEPTS GAME
+      text: 現在準備中です。
+  blog:
+    title: ブログ
+    text: 好きなことや日々の発見を、ブログでも紹介しています。
+  bottom:
+    box1:
+      title: このサイトについて
+      text: 思い出の白い紙に、夢のかけらを描こう。
+    box2:
+      title: よくある質問
+      text: MOEQYについてのご質問にお答えします。
+  botton:
+    more: もっと見る
+    news: お知らせをもっと見る
+    blog: ブログへ
+    view: 見る
+article:
+  backArchive: 記事一覧へ戻る
+  morePost: 最新のお知らせ
+archive:
+  all: すべて
+  news: お知らせ
+  products: 作品
+aboutus: このサイトについて
+ui:
+  WELCOME TO MOEQY: MOEQYの小さな世界へようこそ
+  A little home for ACGN, creativity and everything I love.: ACGNと創作、好きなものが集まる小さな居場所。
+  By MqyGalaxy. Thanks for meeting you!: 好きなことを記録し、創作を分かち合う。出会いに感謝！
+  Explore my world: 私の世界を見てみる
+  MOEQY character illustration: MOEQYのキャラクターイラスト
+  "Tag ": "タグ "
+  News categories: お知らせのカテゴリー
+  No posts in this archive yet.: この言語の記事はまだありません。
+  Pagination: ページ切り替え
+  Page: ページ
+  The homepage is now built with Astro. The original story and credits below are preserved from MOEQY 3.0.: 現在のサイトはAstroで再構築されています。以下には、MOEQY 3.0からの紹介、歩み、旧版の技術クレジットを残しています。
+  Frequently Asked Questions and Answers: よくある質問
+  FAQ categories: 質問のカテゴリー
+  Feedback & Contact: お問い合わせ
+  For suggestions or questions, contact me by email. You can also leave a message on my blog.: サイトへのご提案やご質問はメールでお寄せください。ブログへのコメントもお待ちしています。
+  Send an email: メールを送る
+  Leave a message: ブログにメッセージを残す
+  Frequently Asked Questions: よくある質問
+  Concepts Game is in preparation. Stay tuned.: Concepts Gameは現在準備中です。どうぞお楽しみに。
+  About Us: このサイトについて
+  See you on the blog.: 続きは、ブログで。
+  Close video: 動画を閉じる
+  Watch on bilibili: bilibiliで見る
+  Latest news: 最新のお知らせ
+  A FEW THINGS I LOVE: 好きから、創作がはじまる。
+  Notes: 日記
+  Sorry, the page you are looking for does not exist!: お探しのページは見つかりませんでした。
+  Back to Home: ホームへ戻る
+  Explore this PICK UP: このPICK UPをもっと見る
+  Featured film: ピックアップ動画
+  Read full introduction: 紹介の全文を読む
+  The full story: 紹介を読む
+  Explore my works: 作品を見る
+  Choose a PICK UP: PICK UPを選ぶ
+  Pause PICK UP rotation: PICK UPの切り替えを停止
+  View the event: 企画の詳細を見る
+  Read more: もっと読む
+  Privacy update: プライバシーポリシー更新のお知らせ
+  Dismiss notice: お知らせを閉じる
+  Close introduction: 紹介を閉じる
+  View details: 詳細を見る
+  Project visual: 作品ビジュアル
+  Brand logo: ブランドロゴ
+  Breadcrumb: 現在の位置
+  Home: ホーム
+  All works: すべての作品
+  Choose a product image: 作品画像を選ぶ
+  Collection: コレクション
+  Destination: アクセス先
+  Project page: サイト内の作品ページ
+  External website: 外部サイト
+  Work links: 作品へのリンク
+  Back to all works: 作品一覧へ戻る
+  Explore the details: 作品を詳しく見る
+  On this page: ページ内メニュー
+  Overview: 作品紹介
+  More to discover: ほかの作品も見る
+  A closer look: この作品について
+  View all: すべて見る
+  Discover something you love.: 好きなものと、出会おう。
+  Browse all works: 作品一覧へ
+  works: 作品
+  Work category: 作品のカテゴリー
+  All: すべて
+  Search works: 作品を検索
+  Name or keyword…: 作品名やキーワード…
+  Sort by: 並び順
+  Collection order: おすすめ順
+  Name A–Z: 名前順
+  No matching works. Try another keyword or category.: 該当する作品がありません。キーワードやカテゴリーを変えてみてください。
+  Reset filters: 条件をリセット
+  New creations are on the way.: 新しい作品を準備しています。
+  Featured works: おすすめの作品
+  Previous work: 前の作品
+  Next work: 次の作品
+  Choose a work: 作品を選ぶ
+  Pause slideshow: スライドショーを停止
+  Pause: 停止
+  View all works: すべての作品を見る
+  NetEase Music: NetEase Music
+  Skip to content: 本文へスキップ
+  Open menu: メニューを開く
+  Close menu: メニューを閉じる
+  Main navigation: メインメニュー
+  On the paper of memories,: 思い出の白い紙に、
+  Paint the fragments of dreams.: 夢のかけらを描こう。
+  Back to top: ページの先頭へ
+  FAQ & Support: よくある質問
+  Feedback: お問い合わせ
+  MOEQY Passport: MOEQYパスポート
+  Close: 閉じる
+  Internal testing: パスポート・内部テスト中
+  MOEQY Passport is currently for internal testing only. Registration is not open. You do not need an account to use MOEQY.: MOEQYパスポートは現在、内部テスト専用です。一般登録は受け付けていません。MOEQYの利用にアカウント登録は必要ありません。
+  About MOEQY Passport: MOEQYパスポートについて
+  FAQ: よくある質問
+  WORKS: 作品一覧
+  Watch the 2023 year-end video: 2023年の振り返り動画を見る
+  No posts in this archive yet. (2): この言語の記事はまだありません。
+  More to discover (2): ほかの作品も見る

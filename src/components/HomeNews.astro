@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+import { ui, postLink, type Lang, type Post } from '../lib/content';
+interface Props { posts: Post[]; lang: Lang; }
+const { posts, lang } = Astro.props;
+---
+<div class="home-news-stage">
+  {posts.length === 0 && <p class="news-empty">{ui(lang, 'No posts in this archive yet.', '此目录暂无文章。', 'No posts in this archive yet. (2)')}</p>}
+  <ul class="home-news-cards" aria-label={ui(lang, 'Latest news', '最新消息')}>
+    {posts.map(post => <li class="home-news-item">
+      <a class="home-news-card" href={postLink(post, lang)}>
+        <div class:list={['home-news-cover', { 'brand-cover': post.cover.startsWith('/images/') }]}>
+          <img src={post.cover} alt="" loading="lazy" width="640" height="400" />
+          <span class="home-news-arrow" aria-hidden="true"><Icon name="arrow" direction="up-right" /></span>
+        </div>
+        <div class="home-news-meta"><time datetime={post.date}>{post.date.replaceAll('-', '.')}</time><span>{post.category}</span></div>
+        <h3>{post.title}</h3>
+      </a>
+    </li>)}
+  </ul>
+</div>

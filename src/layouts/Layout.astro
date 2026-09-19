@@ -1,0 +1,123 @@
+---
+import Icon from '../components/Icon.astro';
+import '../styles/global.css';
+import '../styles/redesign.css';
+import '../styles/header.css';
+import '../styles/icons.css';
+import '../styles/footer.css';
+import '../styles/back-to-top.css';
+import '../styles/mascots.css';
+import '../styles/paper.css';
+import { ui, translations, link, prefix, posts, liveLanguages, alternateSlug, type Lang } from '../lib/content';
+interface Props { title?: string; lang?: Lang; description?: string; home?: boolean; }
+const { title, lang = 'zh-CN', description, home = false } = Astro.props;
+const t = translations[lang];
+const isEn = lang === 'en';
+const currentPath = title === '404 Not Found' ? `${prefix(lang)}/404.html` : Astro.url.pathname;
+const route = currentPath.replace(/^\/(en|ja|zh-CN)(?=\/)/, '').replace(/^\/+|\/+$/g, '');
+const languageNames = { 'zh-CN': '简体中文', en: 'English', ja: '日本語' };
+const languageLinks = liveLanguages.map(code => ({ code, label: languageNames[code], href: code === lang ? currentPath : link(code, alternateSlug(route, code)) }));
+const article = posts.find(post => post.slug === route);
+// Archive fallbacks are navigation targets, not equivalent article translations.
+const equivalents = languageLinks.filter(item => item.code === lang || alternateSlug(route, item.code) !== 'archives' || (!article && route === 'archives'));
+const activeNav = home ? 'TOP' : route === 'about' ? 'ABOUT' : /^(works)(\/|$)/.test(route) ? 'WORKS' : /^(archives|categories|tags|gonggao|news|chanpin|products|pages)(\/|$)/.test(route) ? 'NEWS' : '';
+const nav = [ ['TOP', t.menu.home, link(lang)], ['NEWS', t.menu.news, link(lang, 'archives')], ['ABOUT', t.menu.about, link(lang, 'about')], ['WORKS', t.index.products, link(lang, 'works')], ['BLOG', t.index.blog.title, 'https://blog.moeqy.com/'] ];
+const social = [ ['github', 'GitHub', 'https://github.com/MqyGalaxy'], ['mail', 'Email', 'mailto:mail@moeqy.com'], ['bilibili', 'bilibili', 'https://space.bilibili.com/147114872'], ['music', ui(lang, 'NetEase Music', '网易云音乐'), 'https://music.163.com/#/user/home?id=431446496'] ] as const;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description || t.config.description} />
+    <meta name="theme-color" content="#e65097" />
+    <title>{title ? `${title} · ${t.config.title}` : `${t.config.title} · ${t.config.description}`}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(currentPath, Astro.site)} />
+    {equivalents.map(item => <link rel="alternate" hreflang={item.code} href={new URL(item.href, Astro.site)} />)}
+    <link rel="stylesheet" href="/img/icon/iconfont.css" />
+  </head>
+  <body class:list={[{ 'is-home': home, 'is-en': isEn, 'is-ja': lang === 'ja', 'is-about': route === 'about' }]}>
+    <a class="skip-link" href="#main">{ui(lang, 'Skip to content', '跳转到正文')}</a>
+    <div id="top"></div>
+    <header class="site-header">
+      <a class="brand" href={link(lang)} aria-label="MOEQY — Paint the fragments of dreams"><img class="brand-color" src="/images/moeqy-logo.svg" alt="" width="1020" height="326" /><img class="brand-white" src="/images/moeqy-fff-logo.svg" alt="" width="1020" height="326" /></a>
+      <div class="header-note" data-original-font="body">A LITTLE WORLD OF<br /><b>CREATIVITY & DREAMS</b></div>
+      <details class="header-language header-language-picker"><summary aria-label={lang === 'ja' ? '言語を選ぶ' : isEn ? 'Choose language' : '选择语言'}>{lang === 'zh-CN' ? '中文' : lang === 'ja' ? 'JA' : 'EN'} <Icon name="expand" /></summary><div class="header-language-options">{languageLinks.map(item => <a href={item.href} lang={item.code} hreflang={item.code} aria-current={item.code === lang ? 'true' : undefined}>{item.label}</a>)}</div></details>
+      <span class="menu-slot"><button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label={ui(lang, 'Open menu', '打开菜单')} data-open-label={ui(lang, 'Open menu', '打开菜单')} data-close-label={ui(lang, 'Close menu', '关闭菜单')}><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button></span>
+    </header>
+    <nav class="side-nav" aria-label={ui(lang, 'Main navigation', '主导航')}>
+      {nav.map(([en, text, href]) => <a href={href} class:list={[{ active: activeNav === en }]} aria-current={activeNav === en ? 'page' : undefined} target={href.startsWith('https:') ? '_blank' : undefined} rel={href.startsWith('https:') ? 'noopener noreferrer' : undefined}><span class="nav-dot"></span><b>{en}</b><small>{text}</small></a>)}
+      <div class="social-links">{social.map(([icon, name, href]) => <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}><Icon name={icon} /></a>)}</div>
+      <span class="side-sign" data-original-font="body">MOEQY PERSONAL WEBSITE</span>
+    </nav>
+    <dialog id="site-menu" class="menu-dialog" aria-label={ui(lang, 'Main navigation', '主导航')}>
+      <div class="menu-dialog-inner"><div class="eyebrow" data-original-font="body">WELCOME TO MOEQY</div>
+        {nav.map(([en, text, href], i) => <a href={href} aria-current={activeNav === en ? 'page' : undefined} target={href.startsWith('https:') ? '_blank' : undefined} rel={href.startsWith('https:') ? 'noopener noreferrer' : undefined}><span data-original-font="body">0{i+1}</span><b>{en}</b><small>{text}</small><span><Icon name="arrow" direction="up-right" /></span></a>)}
+        <div class="menu-extras"><a href={link(lang, 'faq')}>FAQ</a><a href={link(lang, 'privacy')}>{t.footer.link.privacy}</a>{languageLinks.filter(item => item.code !== lang).map(item => <a href={item.href} lang={item.code}>{item.label}</a>)}</div>
+        <div class="social-links">{social.map(([icon, name, href]) => <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}><Icon name={icon} /></a>)}</div>
+      </div>
+    </dialog>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a href={link(lang)}><img src="/images/moeqy-logo.svg" width="1020" height="326" alt="MOEQY — Paint the fragments of dreams" loading="lazy" /></a>
+        <p>{ui(lang, 'On the paper of memories,', '在回忆的白纸上，')}<br /><strong>{ui(lang, 'Paint the fragments of dreams.', '绘上梦想的碎片。')}</strong></p>
+        <details class="language-picker" id="langFooter">
+          <summary><Icon name="language" /><span>{t.language}</span><Icon name="expand" /></summary>
+          <div class="footer-language-menu">
+            <a class="footer-language-help" href={link(lang, 'help/translate')}>{t.helpTranslate}</a>
+            <hr />
+            <div class="footer-language-options">{languageLinks.map(item => <a href={item.href} lang={item.code} hreflang={item.code} aria-current={item.code === lang ? 'true' : undefined}>{item.label}</a>)}</div>
+          </div>
+        </details>
+      </div>
+      <nav class="footer-directory" aria-label={t.footer.directory.label}>
+        <div class="footer-group">
+          <h2><span class="footer-group-en" data-original-font="body">EXPLORE</span><span>{t.footer.directory.explore}</span></h2>
+          <ul>
+            <li><a href={link(lang)}>{t.menu.home}</a></li>
+            <li><a href={link(lang, 'archives')}>{t.menu.news}</a></li>
+            <li><a href={link(lang, 'about')}>{t.footer.link.about}</a></li>
+          </ul>
+        </div>
+        <div class="footer-group">
+          <h2><span class="footer-group-en" data-original-font="body">CREATIONS</span><span>{t.footer.directory.works}</span></h2>
+          <ul>
+            <li><a href={link(lang, 'works')}>{t.index.products}</a></li>
+            <li><a href={link(lang, 'works/conceptsgame')}>CONCEPTS GAME</a></li>
+            <li><a href="https://blog.moeqy.com/" target="_blank" rel="noopener noreferrer">MyBlog <Icon name="arrow" direction="up-right" /></a></li>
+          </ul>
+        </div>
+        <div class="footer-group">
+          <h2><span class="footer-group-en" data-original-font="body">SUPPORT</span><span>{t.footer.directory.support}</span></h2>
+          <ul>
+            <li><a href={link(lang, 'faq')}>{ui(lang, 'FAQ & Support', '常见问题与解答')}</a></li>
+            <li><a href={link(lang, 'feedback')}>{ui(lang, 'Feedback', '反馈中心')}</a></li>
+            <li><a href={link(lang, 'help/translate')}>{t.helpTranslate}</a></li>
+            <li><a href="#moeqy-account" data-account>{ui(lang, 'MOEQY Passport', 'MOEQY 通行证')}</a></li>
+          </ul>
+        </div>
+        <div class="footer-group footer-connect">
+          <h2><span class="footer-group-en" data-original-font="body">CONNECT</span><span>{t.footer.directory.connect}</span></h2>
+          <div class="social-links">{social.map(([icon, name, href]) => <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}><Icon name={icon} /></a>)}</div>
+          <a class="footer-contact" href="mailto:mail@moeqy.com">mail@moeqy.com <Icon name="arrow" direction="up-right" /></a>
+          <a class="footer-friends" href="https://blog.moeqy.com/friends/" target="_blank" rel="noopener noreferrer">{t.footer.link.friends} <Icon name="arrow" direction="up-right" /></a>
+        </div>
+      </nav>
+      <div class="footer-bottom">
+        <div class="footer-legal"><p>{t.footer.content.text1}</p><span>{t.footer.copyright.text1} <span class="footer-powered">· {t.footer.copyright.text2} <a href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> {t.footer.copyright.text3}</span></span></div>
+        <a class="footer-privacy" href={link(lang, 'privacy')}>{t.footer.link.privacy} <Icon name="arrow" direction="up-right" /></a>
+      </div>
+    </footer>
+    <a class="back-to-top" href="#top" aria-label={ui(lang, 'Back to top', '返回顶部')}>
+      <Icon name="arrow" direction="up" />
+      <small data-original-font="body">TOP</small>
+      <span class="back-top-heart back-top-heart-one" aria-hidden="true"><Icon name="heart" /></span>
+      <span class="back-top-heart back-top-heart-two" aria-hidden="true"><Icon name="heart" /></span>
+    </a>
+    <dialog id="account-dialog" class="account-dialog"><button class="dialog-close" data-close-dialog aria-label={ui(lang, 'Close', '关闭')}><Icon name="close" /></button><div class="eyebrow" data-original-font="body">MOEQY PASSPORT</div><h2>{ui(lang, 'Internal testing', '通行证 · 内部测试')}</h2><p>{ui(lang, 'MOEQY Passport is currently for internal testing only. Registration is not open. You do not need an account to use MOEQY.', 'MOEQY 通行证目前仅作为内部测试使用，暂不开放注册。您不需要注册通行证也能正常使用 MOEQY 的服务。')}</p><a class="pill-button" href={link(lang, 'faq')}>{ui(lang, 'About MOEQY Passport', '关于 MOEQY 通行证')} <Icon name="arrow" direction="up-right" /></a></dialog>
+    <script>import '../scripts/site';</script>
+  </body>
+</html>

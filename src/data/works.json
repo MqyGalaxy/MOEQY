@@ -1,0 +1,63 @@
+[
+  {
+    "id": "conceptsgame",
+    "enabled": true,
+    "href": "/conceptsgame/",
+    "cover": "/img/conceptsgamebackground.png",
+    "logo": "/img/logo/ConceptsgameLOGO.png",
+    "text": {
+      "zh-CN": {
+        "title": "CONCEPTS GAME",
+        "category": "GAME / CONCEPT",
+        "description": "概念游戏正在筹备中，敬请期待。",
+        "cta": "探索概念游戏"
+      },
+      "en": {
+        "title": "CONCEPTS GAME",
+        "category": "GAME / CONCEPT",
+        "description": "Coming Soon...",
+        "cta": "Explore the project"
+      },
+      "ja": {
+        "title": "CONCEPTS GAME",
+        "category": "GAME / CONCEPT",
+        "description": "Concepts Gameは現在準備中です。どうぞお楽しみに。",
+        "cta": "プロジェクトを見る"
+      }
+    },
+    "homeFeatured": true,
+    "pageFeatured": true
+  },
+  {
+    "id": "myblog",
+    "enabled": true,
+    "href": "https://blog.moeqy.com/",
+    "cover": "/img/blog.jpg",
+    "logo": "/img/logo/blog-avatarLOGO.jpg",
+    "text": {
+      "zh-CN": {
+        "title": "MyBlog",
+        "subtitle": "(MqyGalaxy|Blog)",
+        "category": "BLOG / LIFE & CREATION",
+        "description": "MqyGalaxy|Blog是我的个人博客，您可以在这里查看更多文章和消息。",
+        "cta": "前往博客"
+      },
+      "en": {
+        "title": "MyBlog",
+        "subtitle": "(MqyGalaxy|Blog)",
+        "category": "BLOG / LIFE & CREATION",
+        "description": "MqyGalaxy|Blog is my personal blog, you can check more articles and news here.",
+        "cta": "Visit the blog"
+      },
+      "ja": {
+        "title": "MyBlog",
+        "subtitle": "(MqyGalaxy|Blog)",
+        "category": "BLOG / LIFE & CREATION",
+        "description": "MqyGalaxy|Blogは私の個人ブログです。さまざまな記事やお知らせを、こちらでもお楽しみいただけます。",
+        "cta": "ブログへ"
+      }
+    },
+    "homeFeatured": true,
+    "pageFeatured": true
+  }
+]

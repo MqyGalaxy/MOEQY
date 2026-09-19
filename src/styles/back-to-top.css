@@ -1,0 +1,63 @@
+/* The center stops at the section boundary; only colors ease during docking. */
+.back-to-top {
+  --back-top-size: 68px;
+  --back-top-gap: 26px;
+  --back-top-lift: 0px;
+  position: fixed;
+  right: calc(var(--rail) + 22px);
+  bottom: calc(var(--back-top-gap) + var(--back-top-lift));
+  width: var(--back-top-size);
+  height: var(--back-top-size);
+  aspect-ratio: 1;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  color: #fff;
+  background: #e65097;
+  box-shadow: 0 4px 18px #c34d8830;
+  font-size: 25px;
+  line-height: 1;
+  isolation: isolate;
+  transition: opacity .2s, visibility .2s, transform .2s, color .3s, background-color .3s, box-shadow .3s;
+}
+.back-to-top::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed currentColor;
+  border-radius: 50%;
+  opacity: .35;
+  pointer-events: none;
+}
+.back-to-top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  background: linear-gradient(120deg, #fce5f1, #fff4e8 50%, #e2f6f8);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.back-to-top small { margin: 0; font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.back-top-heart { position: absolute; display: flex; color: currentColor; opacity: .65; pointer-events: none; }
+.back-top-heart-one { left: 10px; top: 20px; font-size: 10px; transform: rotate(-18deg); }
+.back-top-heart-two { right: 10px; bottom: 20px; font-size: 7px; transform: rotate(18deg); }
+.back-to-top.is-docked { color: #976386; background-color: #fff4f8; box-shadow: 0 3px 14px #78597820; }
+.back-to-top.is-docked::after { opacity: 1; }
+.back-to-top:hover { background-color: #cd397e; box-shadow: 0 5px 20px #c34d8845; }
+.back-to-top.is-docked:hover { color: #c1397e; }
+.back-to-top:focus-visible { outline: 3px solid #a73871; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .back-to-top { --back-top-size: 56px; --back-top-gap: 18px; right: 13px; font-size: 22px; gap: 2px; }
+  .back-to-top small { font-size: 8px; }
+  .back-top-heart-one { left: 7px; top: 17px; font-size: 8px; }
+  .back-top-heart-two { right: 7px; bottom: 17px; font-size: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top, .back-to-top::after { transition: none; }
+}

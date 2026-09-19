@@ -1,0 +1,52 @@
+---
+import Icon from './Icon.astro';
+import { ui, link, translations, type Lang } from '../lib/content';
+import { works, selectWorks, workText, workLink, workDetailLink, type Work } from '../lib/works';
+import '../styles/works.css';
+interface Props { lang: Lang; items?: Work[]; placement?: 'home' | 'page'; }
+const { lang, items = works, placement = 'home' } = Astro.props;
+const visible = selectWorks(items, placement);
+const home = placement === 'home';
+const sectionId = home ? 'works' : 'featured-works';
+const number = (index: number) => String(index + 1).padStart(2, '0');
+---
+{(home || visible.length > 0) && <section id={sectionId} class:list={['section works-section', { 'works-empty': !visible.length, 'works-page-featured': !home }]} data-works aria-labelledby={`${sectionId}-heading`} data-lang={lang}>
+  {home ? <>
+    <div class="section-label" data-original-font="body"><span>04 / SELECTED WORKS</span><span>MADE WITH LOVE <Icon name="heart" /></span></div>
+    <div class="section-heading reveal"><h2 id={`${sectionId}-heading`}>WORKS</h2><p>{translations[lang].index.products}</p></div>
+  </> : <div class="works-featured-heading"><h2 id={`${sectionId}-heading`}>{ui(lang, 'Featured works', '推荐作品')}</h2><span data-original-font="body">SELECTED WITH LOVE <Icon name="heart" /></span></div>}
+  {visible.length ? <>
+    <div class="works-stage">
+      <span class="works-confetti confetti-one" aria-hidden="true"></span><span class="works-confetti confetti-two" aria-hidden="true"></span>
+      <div class="works-slides">
+        {visible.map((work, index) => {
+          const text = workText(work, lang);
+          return <article class="works-slide" id={`work-panel-${work.id}`} data-work-panel aria-labelledby={`work-title-${work.id}`}>
+            <div class="works-poster">
+              <div class="works-poster-sheet">
+                <div class="works-poster-top"><span>MOEQY / SELECTED WORK</span><b>{number(index)}</b></div>
+                <a class="works-detail-cover" href={workDetailLink(work,lang)} aria-label={`${ui(lang, 'View details', '查看详情')} — ${text.title}`}><img class="works-cover" src={work.cover} alt="" width="1600" height="900" loading="lazy" /></a>
+                <div class="works-poster-bottom"><span>{text.category}</span><span aria-hidden="true"><Icon name="heart" /><Icon name="appreciation" /><Icon name="arrow" direction="up-right" /></span></div>
+              </div>
+            </div>
+            <div class="works-copy">
+              <div class="works-category" data-original-font={/^[\x20-\x7e]+$/.test(text.category) ? 'body' : undefined}><span></span>{text.category}</div>
+              {work.logo && <img class="works-brand" src={work.logo} alt="" width="72" height="72" loading="lazy" />}
+              <h3 id={`work-title-${work.id}`}><a href={workDetailLink(work,lang)}>{text.title}{text.subtitle && <small>{text.subtitle}</small>}</a></h3>
+              <p>{text.description}</p>
+              <a class="pill-button works-visit" href={workLink(work,lang)} target="_blank" rel="noopener noreferrer">{text.cta}<span aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a>
+            </div>
+          </article>;
+        })}
+      </div>
+    </div>
+    {visible.length > 1 && <div class="works-controls" data-work-controls hidden>
+      <div class="works-arrows"><button type="button" data-work-prev aria-label={ui(lang, 'Previous work', '上一个作品')}><Icon name="arrow" /></button><button type="button" data-work-next aria-label={ui(lang, 'Next work', '下一个作品')}><Icon name="arrow" direction="right" /></button></div>
+      <div class="works-tabs" role="tablist" aria-label={ui(lang, 'Choose a work', '选择作品')}>{visible.map((work,index) => <button type="button" role="tab" data-work-tab id={`work-tab-${work.id}`} aria-controls={`work-panel-${work.id}`} aria-selected={index===0} tabindex={index===0 ? 0 : -1}><span class="works-thumb"><svg class="works-progress" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle data-work-progress cx="32" cy="32" r="30" pathLength="100" /></svg><img src={work.logo || work.cover} alt="" width="64" height="64" loading="lazy" /></span><span>{workText(work,lang).title}</span></button>)}</div>
+      <div class="works-playback"><span class="works-count"><b data-work-current>01</b><span>/ {String(visible.length).padStart(2,'0')}</span></span><button type="button" data-work-play aria-label={ui(lang, 'Pause slideshow', '暂停轮播')}><span data-work-play-icon aria-hidden="true"><span class="work-pause-icon"><Icon name="pause" /></span><span class="work-resume-icon"><Icon name="play" /></span></span><span data-work-play-label>{ui(lang, 'Pause', '暂停')}</span></button><small data-original-font="body">10 SEC / AUTO</small></div>
+    </div>}
+    <span class="works-announcement" data-work-announcement aria-live="polite" aria-atomic="true"></span>
+  </> : <p class="works-empty-message">{ui(lang, 'New creations are on the way.', '新的作品正在准备中。')}</p>}
+  {home && <div class="works-all-link"><a class="pill-button" href={link(lang,'works')}>{ui(lang, 'View all works', '查看全部作品')}<Icon name="arrow" direction="up-right" /></a></div>}
+</section>}
+<script>import '../scripts/works';</script>

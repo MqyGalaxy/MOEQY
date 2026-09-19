@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+import PageHeading from './PageHeading.astro';
+import { ui, link, type Lang } from '../lib/content';
+interface Props { lang: Lang; }
+const {lang}=Astro.props; ---
+<PageHeading mascot="good" title="FEEDBACK" subtitle={ui(lang, 'Feedback & Contact', '反馈中心')} eyebrow="LET'S KEEP IN TOUCH" />
+<div class="document-wrap"><p>{ui(lang, 'For suggestions or questions, contact me by email. You can also leave a message on my blog.', '网站修改、建议或问题，请通过邮箱联系我。也欢迎前往博客留言交流。')}</p><div class="feedback-links"><a href="mailto:mail@moeqy.com"><strong>{ui(lang, 'Send an email', '发送邮件')} <Icon name="arrow" direction="up-right" /></strong>mail@moeqy.com</a><a href="https://blog.moeqy.com/talk/" target="_blank" rel="noopener noreferrer"><strong>{ui(lang, 'Leave a message', '博客留言')} <Icon name="arrow" direction="up-right" /></strong>blog.moeqy.com/talk/</a></div><a class="text-link" href={link(lang,'faq')}>{ui(lang, 'Frequently Asked Questions', '常见问题与解答')} <Icon name="arrow" direction="up-right" /></a></div>

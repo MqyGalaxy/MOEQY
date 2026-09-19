@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Custom_M_00000056401226471232266580000009573687727487104930_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256"
+	 enable-background="new 0 0 256 256" xml:space="preserve">
+<g id="M_left_pillar_-_open_heart_seam">
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="25.5" y1="24" x2="615.5" y2="236">
+		<stop  offset="0" style="stop-color:#F0B4D0"/>
+		<stop  offset="1" style="stop-color:#E982B5"/>
+	</linearGradient>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_1_)" d="M52.929,103.071c-3.774-3.774-3.919-9.848-0.328-13.798
+		L75.5,64.084V49c0-13.807-11.193-25-25-25s-25,11.193-25,25v162c0,13.807,11.193,25,25,25s25-11.193,25-25v-85.358L52.929,103.071z
+		"/>
+</g>
+<g id="M_right_pillar_-_open_heart_seam">
+	
+		<linearGradient id="SVGID_00000163045416794015764570000002283058206449865133_" gradientUnits="userSpaceOnUse" x1="25.5" y1="24" x2="615.5" y2="236">
+		<stop  offset="0" style="stop-color:#F0B4D0"/>
+		<stop  offset="1" style="stop-color:#E982B5"/>
+	</linearGradient>
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_00000163045416794015764570000002283058206449865133_)" d="
+		M205.5,24c-13.807,0-25,11.193-25,25v15.084l22.899,25.189c3.591,3.95,3.446,10.023-0.328,13.798L180.5,125.642V211
+		c0,13.807,11.193,25,25,25s25-11.193,25-25V49C230.5,35.193,219.307,24,205.5,24z"/>
+</g>
+<linearGradient id="M_-_solid_site_heart_replaces_central_V_00000026137421574131525910000012715951865169548971_" gradientUnits="userSpaceOnUse" x1="25.5" y1="24" x2="615.5" y2="236">
+	<stop  offset="0" style="stop-color:#F0B4D0"/>
+	<stop  offset="1" style="stop-color:#E982B5"/>
+</linearGradient>
+<path id="M_-_solid_site_heart_replaces_central_V" fill-rule="evenodd" clip-rule="evenodd" fill="url(#M_-_solid_site_heart_replaces_central_V_00000026137421574131525910000012715951865169548971_)" d="
+	M125.879,161.879L62.121,98.121c-1.414-1.414-1.449-2.861-0.103-4.341l35.964-39.56c1.345-1.48,2.725-1.513,4.139-0.098
+	l23.757,23.757c1.414,1.414,2.828,1.414,4.243,0l23.757-23.757c1.414-1.414,2.794-1.381,4.139,0.098l35.964,39.56
+	c1.345,1.48,1.311,2.927-0.103,4.341l-63.757,63.757C128.707,163.293,127.293,163.293,125.879,161.879z"/>
+</svg>

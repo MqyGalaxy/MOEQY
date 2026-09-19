@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/Home.astro';
+import Archive from '../components/Archive.astro';
+import Article from '../components/Article.astro';
+import Document from '../components/Document.astro';
+import Faq from '../components/Faq.astro';
+import Game from '../components/Game.astro';
+import Feedback from '../components/Feedback.astro';
+import WorksPage from '../components/WorksPage.astro';
+import WorkDetail from '../components/WorkDetail.astro';
+import { workText } from '../lib/works';
+import { routes, type Route } from '../lib/routes';
+import { ui, translations } from '../lib/content';
+export function getStaticPaths() { return routes.map(route => ({ params: { path: route.path }, props: { route } })); }
+interface Props { route: Route; }
+const { route } = Astro.props; const { lang, slug, kind, post, work } = route;
+const t=translations[lang];
+const titles: Record<string,string> = { about:t.menu.about, privacy:t.footer.link.privacy, 'help/translate':t.helpTranslate, faq:ui(lang, 'FAQ', '常见问题与解答'), feedback:ui(lang, 'Feedback', '反馈中心'), conceptsgame:'CONCEPTS GAME' };
+const title = work ? workText(work,lang).title : kind === 'works' ? (ui(lang, 'WORKS', '作品一览')) : post?.title || titles[slug] || (kind==='home' ? undefined : t.index.news);
+---
+<Layout title={title} lang={lang} home={kind==='home'} description={work ? workText(work,lang).description : post?.excerpt.slice(0,180)}>
+  {kind==='home' && <Home lang={lang} page={Number(slug.match(/page\/(\d+)/)?.[1] || 1)} />}
+  {kind==='archive' && <Archive route={route} />}
+  {kind==='article' && post && <Article post={post} lang={lang} />}
+  {kind==='document' && <Document slug={slug} lang={lang} />}
+  {kind==='faq' && <Faq lang={lang} />}
+  {kind==='feedback' && <Feedback lang={lang} />}
+  {kind==='game' && <Game lang={lang} />}
+  {kind==='works' && <WorksPage lang={lang} />}
+  {kind==='work-detail' && work && <WorkDetail work={work} lang={lang} />}
+</Layout>

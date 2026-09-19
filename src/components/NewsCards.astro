@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import { defaultPostCover } from '../data/post-covers';
+import { ui, postLink, type Post, type Lang } from '../lib/content';
+import '../styles/news-cards.css';
+interface Props { posts: Post[]; lang: Lang; }
+const { posts, lang } = Astro.props;
+---
+<ul class="archive-news-grid">
+  {posts.map(post => <li>
+    <a class="archive-news-card" href={postLink(post, lang)}>
+      <div class:list={['archive-news-cover', { 'is-brand': post.cover === defaultPostCover || post.cover === '/images/moeqy-logo.png' }]}>
+        <img src={post.cover} alt="" width="640" height="360" loading="lazy" />
+      </div>
+      <div class="archive-news-meta">
+        <time datetime={post.date}>{post.date.replaceAll('-', '.')}</time>
+        <span>{post.category || (ui(lang, 'Notes', '随记'))}</span>
+      </div>
+      <h2>{post.title}</h2>
+      <span class="archive-news-arrow" aria-hidden="true"><Icon name="arrow" direction="up-right" /></span>
+    </a>
+  </li>)}
+</ul>

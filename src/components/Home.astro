@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import '../styles/home-links.css';
+
+import { ui, translations, link, postsFor, type Lang } from '../lib/content';
+import NewsList from './NewsList.astro';
+import HomeNews from './HomeNews.astro';
+import Introduction from './Introduction.astro';
+import WorksShowcase from './WorksShowcase.astro';
+import PickupHero from './PickupHero.astro';
+interface Props { lang: Lang; page?: number; }
+const { lang, page = 1 } = Astro.props;
+const t = translations[lang]; const newsPage = Math.min(page, Math.max(1,Math.ceil(postsFor(lang).length/6)));
+---
+<PickupHero lang={lang} />
+<Introduction lang={lang} />
+<section id="news" class="section news-section"><div class="section-label" data-original-font="body"><span>03 / WHAT'S NEW</span><span>LITTLE STEPS, NEW STORIES</span></div><div class="section-heading reveal"><h2>NEWS<span class="pink">.</span></h2><p>{t.index.news}</p></div>{page === 1 ? <HomeNews posts={postsFor(lang).slice(0,3)} lang={lang} /> : <NewsList posts={postsFor(lang).slice((newsPage-1)*6,newsPage*6)} lang={lang} />}<div class="home-news-more"><a class="pill-button" href={link(lang, 'archives')}>{t.index.botton.news} <span aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a></div></section>
+<WorksShowcase lang={lang} />
+<section class="blog-banner"><img src="/img/footerCover.png" alt="" loading="lazy" /><div><span class="eyebrow" data-original-font="body">MORE STORIES, MORE POSSIBILITIES</span><h2>{ui(lang, 'See you on the blog.', '更多故事，在博客相遇。')}</h2><p>{t.index.blog.text}</p><a class="pill-button" href="https://blog.moeqy.com/">{t.index.botton.blog} <Icon name="arrow" direction="up-right" /></a></div></section>
+<section id="about" class="more-section section">
+  <a class="home-link home-link-about" href={link(lang,'about')}>
+    <div class="home-link-content"><span class="home-link-label">ABOUT US</span><h2>{t.index.bottom.box1.title}</h2><p>{t.index.bottom.box1.text}</p><span class="home-link-arrow" aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></div>
+  </a>
+  <a class="home-link home-link-faq" href={link(lang,'faq')}>
+    <div class="home-link-content"><span class="home-link-label">FAQ & SUPPORT</span><h2>{t.index.bottom.box2.title}</h2><p>{t.index.bottom.box2.text}</p><span class="home-link-arrow" aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></div>
+  </a>
+</section>
+<dialog class="video-dialog" id="video-dialog"><button class="dialog-close" data-close-dialog aria-label={ui(lang, 'Close video', '关闭视频')}><Icon name="close" /></button><div class="eyebrow" data-original-font="body">MYBLOG / 2023 YEAR-END SUMMARY</div><div class="video-embed" data-video-container></div><a href="https://www.bilibili.com/video/BV1g4421F7VL/" target="_blank" rel="noopener noreferrer">{ui(lang, 'Watch on bilibili', '在 bilibili 观看')} <Icon name="arrow" direction="up-right" /></a></dialog>

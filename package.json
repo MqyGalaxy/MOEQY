@@ -1,0 +1,29 @@
+{
+  "name": "moeqy-homepage",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "editor": "node scripts/content-studio.mjs",
+    "editor:migrate-relations": "node scripts/migrate-article-relations.mjs",
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "postbuild": "node scripts/finalize.mjs",
+    "preview": "astro preview --host 0.0.0.0",
+    "check": "astro check",
+    "verify": "node scripts/verify.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "marked": "^16.2.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^24.13.3",
+    "cheerio": "^1.1.2",
+    "happy-dom": "^20.14.0",
+    "typescript": "^5.9.2"
+  }
+}

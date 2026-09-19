@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { ui, link, translations } from '../lib/content';
+import { archiveData, type Route } from '../lib/routes';
+import NewsCards from './NewsCards.astro';
+import PageHeading from './PageHeading.astro';
+interface Props { route: Route; }
+const { route } = Astro.props; const { lang } = route; const t = translations[lang];
+const data = archiveData(route);
+const cats = [ ['archives',t.archive.all], [`categories/${lang !== 'zh-CN'?'news':'gonggao'}`, t.archive.news], [`categories/${lang !== 'zh-CN'?'products':'chanpin'}`, t.archive.products] ];
+---
+<PageHeading mascot="smile" title="NEWS" subtitle={`${t.index.news}${data.period ? ' / '+data.period : ''}${data.tag ? ' / '+(ui(lang, 'Tag ', '标签 '))+data.tag : ''}`} eyebrow="LITTLE STEPS, NEW STORIES" />
+<section class="section"><nav class="archive-tabs" aria-label={ui(lang, 'News categories', '新闻分类')}>{cats.map(([href,label]) => <a href={link(lang,href)} aria-current={(href==='archives' ? !data.category : href.endsWith('/'+data.category)) ? 'page' : undefined}>{label}</a>)}</nav>
+  {data.posts.length ? <NewsCards posts={data.posts} lang={lang} /> : <p class="empty-state">{ui(lang, 'No posts in this archive yet.', '这个归档暂无文章。')} <a href={link(lang,'archives')}>{t.archive.all} <Icon name="arrow" direction="up-right" /></a></p>}
+  {data.totalPages>1 && <nav class="pagination" aria-label={ui(lang, 'Pagination', '分页')}>{Array.from({length:data.totalPages},(_,i) => i+1).map(page => page===data.page ? <span aria-current="page">{page}</span> : <a href={link(lang,data.base+(page>1?`/page/${page}`:''))} aria-label={`${ui(lang, 'Page', '第')} ${page} ${lang === 'zh-CN'?'页':''}`}>{page}</a>)}</nav>}
+</section>

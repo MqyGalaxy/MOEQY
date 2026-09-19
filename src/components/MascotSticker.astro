@@ -1,0 +1,8 @@
+---
+import { mascots, type MascotMood } from '../lib/mascots';
+interface Props { mood: MascotMood; class?: string; }
+const { mood, class: className } = Astro.props;
+---
+<span class:list={['mascot-sticker', `mascot-${mood}`, className]} aria-hidden="true">
+  <img src={`/images/moeqyGirl/${mascots[mood]}`} alt="" width="1024" height="1024" loading="lazy" decoding="async" draggable="false" />
+</span>

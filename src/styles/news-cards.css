@@ -1,0 +1,50 @@
+.archive-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.archive-news-grid > li { min-width: 0; display: flex; }
+.archive-news-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 24px;
+  border: 1px solid #f6eef4;
+  border-radius: 24px;
+  background: white;
+  box-shadow: -6px 7px 0 #fdf0f7, 5px 7px 0 #effafa;
+  transition: translate .5s var(--ease), border-color .5s;
+}
+.archive-news-cover {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff5fa;
+}
+.archive-news-cover img { width: 100%; height: 100%; object-fit: cover; transition: scale .6s var(--ease); }
+.archive-news-cover.is-brand {
+  background: radial-gradient(#fff 1px, transparent 1.5px) 0 0/10px 10px, linear-gradient(120deg, #fff0f6, #f0fbfa);
+}
+.archive-news-cover.is-brand img { object-fit: contain; padding: 12%; }
+.archive-news-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin: 22px 0 14px; }
+.archive-news-meta time { color: var(--pink); font-family: var(--display-font); font-size: 18px; font-weight: 800; letter-spacing: .04em; }
+.archive-news-meta > span { color: var(--purple); font-size: 12px; font-weight: 700; }
+.archive-news-card h2 { font-size: 18px; font-weight: 700; line-height: 1.75; overflow-wrap: anywhere; }
+.archive-news-arrow { display: flex; justify-content: flex-end; color: var(--pink); font-size: 22px; margin-top: auto; padding-top: 20px; }
+.archive-news-card:focus-visible { outline: 3px solid var(--blue); outline-offset: 6px; }
+@media (hover: hover) {
+  .archive-news-card:hover { translate: 0 -5px; border-color: #f3bad5; }
+  .archive-news-card:hover img { scale: 1.035; }
+}
+@media (max-width: 1100px) { .archive-news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; } }
+@media (max-width: 600px) {
+  .archive-news-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .archive-news-card { padding: 16px 16px 20px; border-radius: 20px; }
+  .archive-news-meta { margin-top: 18px; }
+  .archive-news-card h2 { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { .archive-news-card, .archive-news-cover img { transition: none; } }

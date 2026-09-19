@@ -1,0 +1,18 @@
+---
+import documents from '../data/documents.json';
+import { marked } from 'marked';
+import PageHeading from './PageHeading.astro';
+import AboutHero from './AboutHero.astro';
+import { ui, type Lang } from '../lib/content';
+interface Props { slug: string; lang: Lang; }
+const { slug, lang }=Astro.props; const en=lang==='en';
+const titles: Record<string,string[]> = { about:['ABOUT','关于我们','About Us'], privacy:['PRIVACY','隐私协议','Privacy Policy'], 'help/translate':['TRANSLATE','帮助我们完善翻译','Help Us Translate'] };
+const title = titles[slug];
+const japaneseTitles: Record<string,string> = { about: 'このサイトについて', privacy: 'プライバシーポリシー', 'help/translate': '翻訳へのご協力' };
+const japaneseDocuments = import.meta.glob('../content/documents/ja/*.md', { query: '?raw', import: 'default', eager: true });
+let body = lang === 'ja' ? marked.parse(String(japaneseDocuments[`../content/documents/ja/${slug.replace('/', '-')}.md`] || ''), { async: false }) : (documents as Record<string,string>)[`${lang}/${slug}`];
+// Update the live language badge without rewriting the archived document snapshot.
+if (slug === 'help/translate' && lang !== 'ja') body = body.replace(/<div class="block-tag block-tag-no-color"><span>[^<]+<\/span><\/div>(?=<div class="about-title">日本語)/, `<div class="block-tag"><span>${en ? 'Implemented' : '已上线'}</span></div>`);
+---
+{slug==='about' ? <AboutHero lang={lang} /> : <PageHeading title={title[0]} subtitle={lang === 'ja' ? japaneseTitles[slug] : title[en?2:1]} eyebrow={'MOEQY / '+title[0]} />}
+<div id={slug==='about' ? 'about-content' : undefined} class="document-wrap">{slug==='about' && <div class="document-aside">{ui(lang, 'The homepage is now built with Astro. The original story and credits below are preserved from MOEQY 3.0.', '本主页现已使用 Astro 重构。以下保留 MOEQY 原有的介绍、成长故事及旧版技术致谢。')}</div>}<article class="prose" set:html={body} /></div>

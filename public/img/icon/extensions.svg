@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Supplemental local icons absent from iconfont project 2477100. -->
+  <symbol id="icon-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+  <!-- Preserve the original diagonal arrow's uninterrupted stem and square ends. -->
+  <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+  <!-- Legacy sprite entry shares the same geometric heart as CSS masks. -->
+  <symbol id="icon-heart" viewBox="0 0 34 28"><use href="heart.svg#heart" /></symbol>
+</svg>

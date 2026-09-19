@@ -1,0 +1,112 @@
+---
+import Icon from './Icon.astro';
+import { getPickups } from '../lib/pickups';
+import { ui, translations, link, type Lang } from '../lib/content';
+import '../styles/pickup.css';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = translations[lang];
+const en = lang === 'en';
+const pickups = getPickups(lang);
+const first = pickups[0];
+const eventLink = lang === 'ja' ? 'https://blog.moeqy.com/Chinese-New-Year/' : link(lang, en ? 'products/20240210/post-1' : 'chanpin/20240210/post-1');
+// The same control points drive both SVG clipping and the fixed header's boundary check.
+const desktopCurve = [[0,.965],[.08,.965],[.16,.965],[.24,.965],[.40,.965],[.39,.54],[.56,.54],[.70,.54],[.86,.54],[1,.54]];
+const mobileCurve = [[0,1],[0.106666667,1],[0.213333333,1],[0.32,1],[0.325904998,1],[0.331694846,0.998899973],[0.336728696,0.996821674],[0.389576232,0.975002796],[0.442423768,0.953183918],[0.495271304,0.931365041],[0.500305154,0.929286742],[0.506095002,0.928186715],[0.512,0.928186715],[0.674666667,0.928186715],[0.837333333,0.928186715],[1,0.928186715]];
+const curvePath = (points: number[][]) => `M0 0 L${points[0].join(' ')} ${points.slice(1).map((p,i) => `${i % 3 === 0 ? 'C' : ''}${p.join(' ')}`).join(' ')} L1 0 Z`;
+const paperPath = (points: number[][]) => `M0 1 L${points[0].join(' ')} ${points.slice(1).map((p,i) => `${i % 3 === 0 ? 'C' : ''}${p.join(' ')}`).join(' ')} L1 1 Z`;
+---
+<section id="pickup" class="section pickup-section" data-pickup-id={first.id} data-lang={lang} data-pickup-media="video">
+  <script is:inline type="application/json" data-pickup-data set:html={JSON.stringify(pickups).replaceAll('<', '\\u003c')} />
+  <svg class="pickup-clips" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+    <clipPath id="pickup-curve" clipPathUnits="objectBoundingBox"><path d={curvePath(desktopCurve)} /></clipPath>
+    <clipPath id="pickup-curve-mobile" clipPathUnits="objectBoundingBox"><path d={curvePath(mobileCurve)} /></clipPath>
+  </defs></svg>
+  <div class="pickup-video" data-video-surface data-curve={JSON.stringify(desktopCurve)} data-mobile-curve={JSON.stringify(mobileCurve)}>
+    <img class="pickup-poster" src={first.poster} alt="" width="1600" height="900" fetchpriority="high" />
+    <video autoplay muted loop playsinline preload="metadata" poster={first.poster} aria-hidden="true"><source src={first.video} type="video/webm" /></video>
+    <span class="pickup-shade" aria-hidden="true"></span>
+    <span class="pickup-video-shield" aria-hidden="true"></span>
+    <span class="pickup-graphic" aria-hidden="true">
+      <span class="pickup-graphic-block"></span>
+      <span class="pickup-word pickup-word-echo"><span>PICK</span><span>UP</span></span>
+      <span class="pickup-word pickup-word-main"><span>PICK</span><span>UP</span></span>
+      <span class="pickup-graphic-caption"><b>01</b><span>MOEQY /<br />FEATURED WORK</span><i><Icon name="arrow" direction="up-right" /></i></span>
+    </span>
+  </div>
+  <svg class="pickup-paper-cover" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="pickup-paper-desktop-shape" d={paperPath(desktopCurve)} />
+      <path id="pickup-paper-mobile-shape" d={paperPath(mobileCurve)} />
+      <clipPath id="pickup-paper-desktop-clip"><use href="#pickup-paper-desktop-shape" /></clipPath>
+      <clipPath id="pickup-paper-mobile-clip"><use href="#pickup-paper-mobile-shape" /></clipPath>
+      <pattern id="pickup-paper-dots" patternUnits="userSpaceOnUse" width=".0046875" height=".0083333"><ellipse cx=".00234375" cy=".0041667" rx=".00046875" ry=".0008333" fill="#e65097" fill-opacity=".17" /></pattern>
+    </defs>
+    <g class="pickup-paper-desktop">
+      <use href="#pickup-paper-desktop-shape" fill="#fdeef5" />
+      <use href="#pickup-paper-desktop-shape" fill="url(#pickup-paper-dots)" />
+      <ellipse class="pickup-paper-accent" cx="1" cy="1.1" rx=".33" ry=".59" fill="#ffe4ed" clip-path="url(#pickup-paper-desktop-clip)" />
+    </g>
+    <g class="pickup-paper-mobile">
+      <use href="#pickup-paper-mobile-shape" fill="#fdeef5" />
+      <use href="#pickup-paper-mobile-shape" fill="url(#pickup-paper-dots)" />
+      <ellipse class="pickup-paper-accent" cx="1" cy="1.1" rx=".33" ry=".59" fill="#ffe4ed" clip-path="url(#pickup-paper-mobile-clip)" />
+    </g>
+  </svg>
+  <div class="pickup-note-board" role="group" aria-label={ui(lang, 'Explore this PICK UP', '探索当前 PICK UP')}>
+    <button type="button" class="pickup-note pickup-play" data-video-open data-player={first.player} hidden={!first.video || !first.player} aria-label={first.mediaLabel} aria-haspopup="dialog" aria-controls="video-dialog">
+      <span class="pickup-note-heading">PLAY MOVIE</span>
+      <span class="pickup-note-art pickup-note-film"><img src={first.poster} alt="" width="320" height="180" /><span class="pickup-note-corner" aria-hidden="true"><Icon name="play" /></span></span>
+      <span class="pickup-note-caption"><Icon name="heart" /><span>{ui(lang, 'Featured film', '播放精选影片')}</span><small>01</small></span>
+    </button>
+    <span class="pickup-note pickup-note-empty" aria-hidden="true"><span class="pickup-note-heading"></span><span class="pickup-note-art"></span><span class="pickup-note-caption"></span></span>
+    <a class="pickup-note pickup-note-story" href={eventLink} data-introduction-open aria-label={ui(lang, 'Read full introduction', '阅读完整活动介绍')} aria-haspopup="dialog" aria-controls="pickup-introduction">
+      <span class="pickup-note-heading">STORY & NOTES</span>
+      <span class="pickup-note-art pickup-note-letter" aria-hidden="true"><b>Dear<br />you.</b><Icon name="mail" /><span class="pickup-note-corner"><Icon name="more" /></span></span>
+      <span class="pickup-note-caption"><Icon name="info" /><span>{ui(lang, 'The full story', '阅读完整介绍')}</span><small>02</small></span>
+    </a>
+    <a class="pickup-note pickup-note-works" href="#works">
+      <span class="pickup-note-heading">SELECTED WORKS</span>
+      <span class="pickup-note-art pickup-note-project" aria-hidden="true"><b>Made<br />with love.</b><Icon name="game" /><span class="pickup-note-corner"><Icon name="arrow" direction="up-right" /></span></span>
+      <span class="pickup-note-caption"><Icon name="game" /><span>{ui(lang, 'Explore my works', '探索我的作品')}</span><small>03</small></span>
+    </a>
+  </div>
+  <div class="pickup-visual-change" data-pickup-controls hidden>
+    <div class="pickup-visual-layout">
+    <div class="pickup-visual-thumbs" role="group" aria-label={ui(lang, 'Choose a PICK UP', '选择 PICK UP')}>
+      {pickups.map((item,index) => <button type="button" data-pickup-select={index} aria-pressed={index===0} aria-label={`${String(index+1).padStart(2,'0')} / ${item.title}`} aria-controls="pickup-copy" tabindex={index===0 ? 0 : -1}><span class="pickup-visual-image"><img src={item.poster} alt="" width="150" height="80" loading="eager" /></span></button>)}
+    </div>
+    <div class="pickup-visual-meter-group">
+    <div class="pickup-visual-label"><span>VISUAL CHANGE</span><button type="button" data-pickup-pause aria-label={ui(lang, 'Pause PICK UP rotation', '暂停 PICK UP 轮播')}><span class="pickup-pause-icon"><Icon name="pause" /></span><span class="pickup-resume-icon"><Icon name="play" /></span></button></div>
+    <div class="pickup-visual-meter" aria-hidden="true"><div class="pickup-visual-track"><span></span></div></div>
+    </div>
+    </div>
+  </div>
+  <span class="pickup-announcement" aria-live="polite" aria-atomic="true"></span>
+  <div class="pickup-info" id="pickup-copy" data-copy-mode="full">
+    <div class="pickup-copy-layout">
+    <div class="pickup-decor" aria-hidden="true"><i class="pickup-dots"></i><i class="pickup-disc"></i><i class="pickup-triangle"></i><i class="pickup-paper"></i><i class="pickup-heart"></i></div>
+    <div class="pickup-meta"><span class="tag">{t.index.tag.product}</span><time datetime="2024-02-10">2024.02.10</time><span aria-hidden="true"><Icon name="announcement" /></span></div>
+    <h1 title={t.index.title}><a href="https://blog.moeqy.com/Chinese-New-Year/" target="_blank" rel="noopener noreferrer">{t.index.title}</a></h1>
+    <div class="pickup-description-wrap" data-truncated="true">
+      <p class="pickup-description">{t.index.text}</p>
+      <a class="pickup-expand" href={eventLink} data-introduction-open aria-label={ui(lang, 'Read full introduction', '阅读完整活动介绍')} title={ui(lang, 'Read full introduction', '阅读完整活动介绍')} aria-haspopup="dialog" aria-controls="pickup-introduction"><Icon name="expand" /></a>
+    </div>
+    <div class="pickup-actions">
+      <a class="pill-button feature-button" href={eventLink}>{ui(lang, 'View the event', '查看活动详情')}<span aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a>
+      <a class="pickup-read-more" href={eventLink} data-introduction-open aria-haspopup="dialog" aria-controls="pickup-introduction">{ui(lang, 'Read more', '活动介绍')}<span aria-hidden="true"><Icon name="expand" /></span></a>
+      <a class="pickup-scroll" href="#introduction" aria-label="SCROLL DOWN"><span>SCROLL DOWN</span><b aria-hidden="true"><Icon name="arrow" direction="down" /></b></a>
+    </div>
+    </div>
+  </div>
+  <aside class="privacy-notice" aria-label={ui(lang, 'Privacy update', '隐私协议更新通知')}><span class="notice-mark"><Icon name="info" /></span><p>{t.index.window.text}<a href={link(lang,'privacy')}>{t.index.window.link}</a>{t.index.window.end}</p><button data-dismiss-notice aria-label={ui(lang, 'Dismiss notice', '关闭通知')}><Icon name="close" /></button></aside>
+</section>
+<dialog class="pickup-introduction" id="pickup-introduction" aria-labelledby="pickup-introduction-title">
+  <button class="dialog-close" data-close-dialog aria-label={ui(lang, 'Close introduction', '关闭活动介绍')}><Icon name="close" /></button>
+  <div class="pickup-meta"><span class="tag">{t.index.tag.product}</span><time datetime="2024-02-10">2024.02.10</time></div>
+  <h2 id="pickup-introduction-title">{t.index.title}</h2>
+  <p>{t.index.text}</p>
+  <a class="pill-button" href={eventLink}>{ui(lang, 'View the event', '查看活动详情')}<span aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a>
+</dialog>
+<noscript><nav class="pickup-fallback section" aria-label="PICK UP">{pickups.map(item => <a href={item.href}>{item.title}<Icon name="arrow" direction="up-right" /></a>)}</nav></noscript>
+<script>import '../scripts/pickup';</script>

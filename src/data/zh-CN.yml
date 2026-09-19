@@ -1,0 +1,211 @@
+config:
+  title: 萌趣MOEQY
+  description: 在回忆的白纸上，绘上梦想的碎片~
+
+language: 简体中文
+helpTranslate: 帮助我们完善翻译
+
+menu:
+  home: 主页
+  news: 新闻动态
+  about: 关于我们
+
+#页底
+footer:
+  directory:
+    label: 页脚导航
+    explore: 探索萌趣
+    works: 作品与企划
+    support: 帮助与服务
+    connect: 关注与联系
+  link:
+    friends: 友情链接
+    about: 关于我们
+    privacy: 隐私协议
+  content:
+    text1: "本网站属于个人主页，不使用于任何商业行为。"
+    text2: "网站修改与建议请联系 mail#moeqy.com 请将#修改为@。"
+  copyright:
+    text1: "©MOEQY | moeqy.com | by MqyGalaxy"
+    text2: "基于"
+    text3: "搭建"
+
+#主页
+index:
+  tag:
+    media: 视频
+    product: 产品
+    news: 新闻
+  title: "MyBlog 祝各位龙年大吉！"
+  text: "MqyGalaxy | Blog
+    新春活动现已开启，参与新春活动可获得小站的龙年看板娘“雪霞”和“玥炫”的立绘，以及可以获得我们的2024新年贺图！观看2023年
+    MqyGalaxy|Blog 了解小站在去年留下的足迹。 感谢与您相遇~！"
+
+  about:
+    title: "关于萌趣MOEQY"
+    text1: "萌趣是一个个人性质的网站，由 MqyGalaxy
+      搭建和管理。网站用于练习技术以及分享自己喜欢的事情！目前致力于ACG（番剧/动漫、漫画、游戏）、视频制作、MMD、网页制作等。"
+    text2: "萌趣作为一个作品集收集着我一步又一步的成长。将自己的学习心得和作品发布在萌趣MOEQY中，分享给大家更多事物。"
+  detailed:
+    title: "兴趣与创作"
+    menu:
+      acgn: ACGN
+      video: 媒体
+      game: 游戏
+      more: 更多
+    acgn:
+      text: "ACGN一般解释为Anime（动漫）、Comics（漫画）、Games（游戏）、Novels（小说）合称的缩写。ACGN是一种充满活力的次文化社\
+        区，而二次元则是ACGN次文化中对于动画、漫画、游戏等作品中虚构世界的一种称呼用语。萌趣一直在活跃创作ACG相关作品。"
+    video:
+      text: "在如今，自媒体和视频逐渐成为了人们传播和了解信息的主流方式。人们也更加喜欢能够发挥自由创作的平台。"
+    game:
+      text: "游戏也被称之为“第九艺术”。在现在，游戏已经成为人们创作的全新方式，许多优秀的创作者们创造信息世界，让玩家们身临其境感受他们想要表达的故事。"
+    more:
+      text: "萌趣还会学习更多的知识！"
+  window:
+    text: "萌趣MOEQY 的《隐私协议》已经于2025年7月8日更新。详情请查看最新的 "
+    link: "隐私协议"
+    end: "。"
+
+  news: 新闻动态
+
+  products: 作品一览
+  works:
+    myblog:
+      title: MyBlog(MqyGalaxy|Blog)
+      text: "MqyGalaxy|Blog是我的个人博客，您可以在这里查看更多文章和消息。"
+    conceptsgame:
+      title: CONCEPTS GAME
+      text: 概念游戏正在筹备中，敬请期待。
+
+  blog:
+    title: 博客
+    text: "前往博客了解更多有趣的信息"
+
+  bottom:
+    box1:
+      title: 关于我们
+      text: "在回忆的白纸上，绘上梦想的碎片。"
+    box2:
+      title: 常见问题与解答
+      text: "萌趣MOEQY的疑问解答。"
+
+  #按钮
+  botton:
+    more: 更多
+    news: 更多新闻
+    blog: 访问博客
+    view: 前往
+
+#文章
+article:
+  backArchive: 返回
+  morePost: 最新动态
+
+archive:
+  all: 全部
+  news: 公告
+  products: 产品
+
+#关于我们
+aboutus: 关于我们
+ui:
+  WELCOME TO MOEQY: 欢迎来到，萌趣的小世界
+  A little home for ACGN, creativity and everything I love.: 一个爱好 ACGN 的温馨小窝。
+  By MqyGalaxy. Thanks for meeting you!: 记录热爱，分享创作。感谢与您相遇~！
+  Explore my world: 一起探索我的世界
+  MOEQY character illustration: MOEQY 角色立绘
+  "Tag ": "标签 "
+  News categories: 新闻分类
+  No posts in this archive yet.: 这个归档暂无文章。
+  Pagination: 分页
+  Page: 第
+  The homepage is now built with Astro. The original story and credits below are preserved from MOEQY 3.0.: 本主页现已使用 Astro 重构。以下保留 MOEQY 原有的介绍、成长故事及旧版技术致谢。
+  Frequently Asked Questions and Answers: 常见问题与解答
+  FAQ categories: 问题分类
+  Feedback & Contact: 反馈中心
+  For suggestions or questions, contact me by email. You can also leave a message on my blog.: 网站修改、建议或问题，请通过邮箱联系我。也欢迎前往博客留言交流。
+  Send an email: 发送邮件
+  Leave a message: 博客留言
+  Frequently Asked Questions: 常见问题与解答
+  Concepts Game is in preparation. Stay tuned.: 概念游戏正在筹备中，敬请期待。
+  About Us: 关于我们
+  See you on the blog.: 更多故事，在博客相遇。
+  Close video: 关闭视频
+  Watch on bilibili: 在 bilibili 观看
+  Latest news: 最新消息
+  A FEW THINGS I LOVE: 喜欢，是创作的开始。
+  Notes: 随记
+  Sorry, the page you are looking for does not exist!: 对不起，您要找的页面不存在！
+  Back to Home: 返回主页
+  Explore this PICK UP: 探索当前 PICK UP
+  Featured film: 播放精选影片
+  Read full introduction: 阅读完整活动介绍
+  The full story: 阅读完整介绍
+  Explore my works: 探索我的作品
+  Choose a PICK UP: 选择 PICK UP
+  Pause PICK UP rotation: 暂停 PICK UP 轮播
+  View the event: 查看活动详情
+  Read more: 活动介绍
+  Privacy update: 隐私协议更新通知
+  Dismiss notice: 关闭通知
+  Close introduction: 关闭活动介绍
+  View details: 查看详情
+  Project visual: 作品视觉
+  Brand logo: 品牌标识
+  Breadcrumb: 面包屑
+  Home: 首页
+  All works: 全部作品
+  Choose a product image: 选择作品图片
+  Collection: 所属集合
+  Destination: 访问入口
+  Project page: 站内项目页面
+  External website: 独立网站
+  Work links: 作品链接
+  Back to all works: 返回全部作品
+  Explore the details: 了解作品详情
+  On this page: 本页内容
+  Overview: 作品介绍
+  More to discover: 更多作品
+  A closer look: 关于这件作品
+  View all: 查看全部
+  Discover something you love.: 发现喜欢，收藏灵感。
+  Browse all works: 浏览全部作品
+  works: 件作品
+  Work category: 作品分类
+  All: 全部
+  Search works: 搜索作品
+  Name or keyword…: 输入名称或关键词…
+  Sort by: 排序
+  Collection order: 默认顺序
+  Name A–Z: 按名称排序
+  No matching works. Try another keyword or category.: 暂未找到匹配作品，试试其他关键词或分类。
+  Reset filters: 重置筛选
+  New creations are on the way.: 新的作品正在准备中。
+  Featured works: 推荐作品
+  Previous work: 上一个作品
+  Next work: 下一个作品
+  Choose a work: 选择作品
+  Pause slideshow: 暂停轮播
+  Pause: 暂停
+  View all works: 查看全部作品
+  NetEase Music: 网易云音乐
+  Skip to content: 跳转到正文
+  Open menu: 打开菜单
+  Close menu: 关闭菜单
+  Main navigation: 主导航
+  On the paper of memories,: 在回忆的白纸上，
+  Paint the fragments of dreams.: 绘上梦想的碎片。
+  Back to top: 返回顶部
+  FAQ & Support: 常见问题与解答
+  Feedback: 反馈中心
+  MOEQY Passport: MOEQY 通行证
+  Close: 关闭
+  Internal testing: 通行证 · 内部测试
+  MOEQY Passport is currently for internal testing only. Registration is not open. You do not need an account to use MOEQY.: MOEQY 通行证目前仅作为内部测试使用，暂不开放注册。您不需要注册通行证也能正常使用 MOEQY 的服务。
+  About MOEQY Passport: 关于 MOEQY 通行证
+  FAQ: 常见问题与解答
+  WORKS: 作品一览
+  Watch the 2023 year-end video: 播放 2023 年终总结视频
+  No posts in this archive yet. (2): 此目录暂无文章。
+  More to discover (2): 发现更多作品

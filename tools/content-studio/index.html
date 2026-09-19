@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MOEQY 内容工作台</title><link rel="stylesheet" href="/studio.css"></head>
+<body>
+  <header class="app-header"><a href="/" class="brand">MOEQY <span>CONTENT STUDIO</span></a><span class="local-label">本地内容工作台</span><button id="reload" type="button">重新载入</button></header>
+  <div class="shell">
+    <aside class="sidebar"><div class="sidebar-title">内容库</div><nav aria-label="编辑对象"><button data-section="posts" aria-current="page">文章 <span id="post-count"></span></button><button data-section="works">作品 <span id="work-count"></span></button><button data-section="relations">文章关系</button><button data-section="languages">语言与翻译</button></nav><p class="sidebar-note">写下喜欢的事，<br>让创作走向更多语言。</p><p class="local-note">保存至项目源文件<br>不会自动发布网站</p></aside>
+    <main><div class="page-heading"><div><p class="eyebrow" id="eyebrow">STORIES & NOTES</p><h1 id="page-title">文章</h1></div><button id="create" class="primary" type="button">新增文章</button></div>
+      <p id="status" role="status" aria-live="polite">正在读取项目…</p>
+      <div id="article-language-menu" class="article-language-menu" hidden></div><div id="article-language-bar" class="article-language-bar" hidden><button type="button" id="back-to-languages">返回语言选择</button><span id="article-language-name"></span></div>
+      <div class="workspace"><section class="library" aria-label="内容列表"><label class="search-label">查找内容<input id="search" type="search" placeholder="输入名称、路径或语言"></label><div id="items"></div></section><section id="editor" class="editor" aria-label="编辑内容"><div class="welcome"><h2>开始一次新的创作</h2><p>从左侧选择内容，或创建新的文章与作品。</p></div></section></div>
+    </main>
+  </div>
+  <dialog id="confirm-dialog"><form method="dialog"><h2>尚有未保存的修改</h2><p>离开会丢弃当前输入。保存后再离开可以保留修改。</p><div class="dialog-actions"><button value="cancel" autofocus>继续编辑</button><button value="discard">放弃修改并离开</button></div></form></dialog>
+  <dialog id="locale-dialog"><form id="locale-form"><h2>准备一种新语言</h2><p>新语言先作为翻译草稿；公开路由接入后才能上线。</p><label>语言代码<input name="code" placeholder="例如 ja" required pattern="[a-z]{2,3}(-[A-Za-z0-9]{2,8})*"></label><label>显示名称<input name="label" placeholder="例如 日本語" required></label><div class="dialog-actions"><button type="button" id="locale-cancel">取消</button><button class="primary">创建语言草稿</button></div></form></dialog>
+  <dialog id="translation-dialog"><form id="translation-form"><h2>新建语言版本</h2><p>选择目标语言，保存新文章时才会建立绑定。</p><label>目标语言<select name="targetLanguage" required></select></label><div class="dialog-actions"><button type="button" id="translation-cancel">取消</button><button class="primary" type="submit">开始编辑译文</button></div></form></dialog>
+  <dialog id="asset-dialog"><div class="dialog-heading"><h2>选择封面或素材</h2><button id="asset-close" type="button">关闭</button></div><label>查找素材<input id="asset-search" type="search" placeholder="输入文件名"></label><label class="upload-label">上传图片<input id="asset-upload" type="file" accept="image/png,image/jpeg,image/gif,image/webp"></label><p id="asset-status" role="status"></p><div id="asset-grid"></div></dialog>
+  <script src="/studio.js" type="module"></script>
+</body></html>

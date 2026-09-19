@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import { workText, workLink, workDetailLink, type Work } from '../lib/works';
+import { ui, type Lang } from '../lib/content';
+interface Props { work: Work; lang: Lang; }
+const { work, lang } = Astro.props;
+const text = workText(work,lang);
+const detail = workDetailLink(work,lang);
+---
+<li class="work-card" data-work-card={work.id} data-category={text.category} data-title={text.title} data-search={`${text.title} ${text.subtitle || ''} ${text.category} ${text.description}`}>
+  <a class="work-card-cover" href={detail} aria-label={`${ui(lang, 'View details', '查看详情')} — ${text.title}`}><img src={work.cover} width="1600" height="900" loading="lazy" alt="" /><span class="work-card-view" aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a>
+  <div class="work-card-body">
+    <span class="work-card-category" data-original-font={/^[\x20-\x7e]+$/.test(text.category) ? 'body' : undefined}>{text.category}</span>
+    <div class="work-card-name">{work.logo && <img src={work.logo} alt="" width="64" height="64" loading="lazy" />}<h3><a href={detail}>{text.title}{text.subtitle && <small>{text.subtitle}</small>}</a></h3></div>
+    <p>{text.description}</p>
+    <div class="work-card-actions"><a class="work-detail-link" href={detail}>{ui(lang, 'View details', '查看详情')}<Icon name="arrow" direction="up-right" /></a><a class="work-card-visit" href={workLink(work,lang)} target="_blank" rel="noopener noreferrer">{text.cta}<Icon name="arrow" direction="up-right" /></a></div>
+  </div>
+</li>

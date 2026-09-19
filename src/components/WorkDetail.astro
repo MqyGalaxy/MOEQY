@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import StoreAccent from './StoreAccent.astro';
+import WorkCard from './WorkCard.astro';
+import { ui, link, type Lang } from '../lib/content';
+import { works, selectWorks, workText, workLink, type Work } from '../lib/works';
+import { workContent } from '../lib/work-content';
+import '../styles/work-pages.css';
+interface Props { work: Work; lang: Lang; }
+const { work, lang } = Astro.props;
+const text = workText(work,lang);
+const gallery = [{src:work.cover,label:ui(lang, 'Project visual', '作品视觉')}, ...(work.logo ? [{src:work.logo,label:ui(lang, 'Brand logo', '品牌标识')}] : [])];
+const related = selectWorks(works).filter(item=>item.id!==work.id).slice(0,2);
+---
+<div class="product-page" data-work-detail={work.id}>
+  <nav class="product-breadcrumb" aria-label={ui(lang, 'Breadcrumb', '面包屑')}><a href={link(lang)}>{ui(lang, 'Home', '首页')}</a><span aria-hidden="true">/</span><a href={link(lang,'works')}>{ui(lang, 'All works', '全部作品')}</a><span aria-hidden="true">/</span><span>{text.title}</span></nav>
+  <section class="product-overview" aria-labelledby="product-title">
+    <div class="product-gallery" data-product-gallery>
+      <StoreAccent variant="gallery" />
+      <div class="product-image-stage"><img data-gallery-image src={work.cover} width="1600" height="900" alt={`${text.title} — ${gallery[0].label}`} /><span class="product-image-caption" data-gallery-caption>{gallery[0].label}</span><span class="product-image-number" data-original-font="body" aria-hidden="true"><b data-gallery-index>01</b> / {String(gallery.length).padStart(2,'0')}</span></div>
+      <div class="product-thumbnails" data-gallery-controls hidden role="group" aria-label={ui(lang, 'Choose a product image', '选择作品图片')}>{gallery.map((image,index)=><button type="button" data-gallery-src={image.src} data-gallery-label={image.label} data-gallery-alt={`${text.title} — ${image.label}`} aria-label={image.label} aria-pressed={index===0}><img src={image.src} alt="" width="120" height="90" /><span>{image.label}</span></button>)}</div>
+    </div>
+    <div class="product-summary">
+      <span class="store-eyebrow">MOEQY / SELECTED CREATION</span>
+      <span class="product-category" data-original-font={/^[\x20-\x7e]+$/.test(text.category) ? 'body' : undefined}>{text.category}</span>
+      <h1 id="product-title">{text.title}</h1>
+      {text.subtitle && <p class="product-subtitle">{text.subtitle}</p>}
+      <p class="product-description">{text.description}</p>
+      <dl class="product-facts"><div><dt>{ui(lang, 'Collection', '所属集合')}</dt><dd data-original-font="body">MOEQY WORKS</dd></div><div><dt>{ui(lang, 'Destination', '访问入口')}</dt><dd>{work.href.startsWith('/') ? (ui(lang, 'Project page', '站内项目页面')) : (ui(lang, 'External website', '独立网站'))}</dd></div></dl>
+      <nav class="work-detail-actions" aria-label={ui(lang, 'Work links', '作品链接')}><a class="pill-button product-primary" href={workLink(work,lang)} target="_blank" rel="noopener noreferrer">{text.cta}<Icon name="arrow" direction="up-right" /></a><a class="work-detail-link" href={link(lang,'works')}><Icon name="arrow" />{ui(lang, 'Back to all works', '返回全部作品')}</a></nav>
+      <a class="product-jump" href="#product-description">{ui(lang, 'Explore the details', '了解作品详情')} <Icon name="arrow" direction="down" /></a>
+    </div>
+  </section>
+  <nav class="product-section-nav" aria-label={ui(lang, 'On this page', '本页内容')}><a href="#product-description">{ui(lang, 'Overview', '作品介绍')}</a>{related.length>0 && <a href="#related-works">{ui(lang, 'More to discover', '更多作品')}</a>}</nav>
+  <section class="product-description-section" id="product-description" aria-labelledby="product-description-heading"><div class="product-section-heading"><span data-original-font="body">BEHIND THE CREATION</span><h2 id="product-description-heading">{ui(lang, 'A closer look', '关于这件作品')}</h2><StoreAccent variant="story" /></div><div class="product-story" lang={lang} set:html={workContent[work.id][lang]} /></section>
+  {related.length>0 && <section class="product-related" id="related-works" aria-labelledby="related-heading"><div class="works-directory-heading"><div><span data-original-font="body">KEEP EXPLORING</span><h2 id="related-heading">{ui(lang, 'More to discover', '发现更多作品', 'More to discover (2)')}</h2></div><a class="work-detail-link" href={link(lang,'works')}>{ui(lang, 'View all', '查看全部')} <Icon name="arrow" direction="right" /></a></div><ul class="work-card-grid">{related.map(item=><WorkCard work={item} lang={lang} />)}</ul></section>}
+</div>
+<script>import '../scripts/work-store';</script>

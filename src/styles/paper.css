@@ -1,0 +1,32 @@
+/* One document-wide tiling origin: section boundaries never restart the grid.
+   CSS paints the full page, including content added after the initial layout. */
+:root {
+  --white-paper-pattern: url('/img/heart-paper.svg');
+  --white-paper-tile: 125px 125px;
+}
+body {
+  min-height: 100vh;
+  background: white var(--white-paper-pattern) left top / var(--white-paper-tile) repeat scroll;
+}
+.about-section,
+.news-section,
+.page-heading:not(.article-heading),
+.is-about .hero,
+.section.works-section {
+  background: transparent;
+}
+/* Replace the old dense dots instead of layering two patterns together. */
+.is-about .hero-grid { background-image: none; }
+/* Markdown is read on an opaque sheet; the pattern stays in the page margins. */
+.article-reading {
+  background: white;
+  border: 1px solid var(--line);
+  padding: clamp(16px, 2.5vw, 40px);
+}
+.article-reading > :last-child { margin-bottom: 0; }
+@media (max-width: 600px) {
+  :root { --white-paper-tile: 100px 100px; }
+}
+@media print {
+  body { background: white; }
+}

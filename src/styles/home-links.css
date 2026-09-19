@@ -1,0 +1,68 @@
+/* Both links share one skew, so their joined edge stays straight as they grow.
+   Counter-skew the content to keep typography and icons upright. */
+/* The footer's pink top rule would look like a gap under the teal half. */
+.is-home .site-footer { border-top: 0; }
+.section.more-section {
+  --link-gutter: clamp(24px, 5vw, 100px);
+  display: flex;
+  padding: 0;
+  gap: 0;
+  /* Clip the slanted outer edges without creating a focus-scroll container. */
+  overflow: clip;
+  isolation: isolate;
+  background: #e65097;
+}
+.more-section .home-link {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px var(--link-gutter);
+  min-height: 320px;
+  color: white;
+  transform: skewX(-10deg);
+  transition: flex-grow .6s var(--ease);
+}
+.more-section .home-link-about {
+  margin-left: -80px;
+  padding-left: calc(80px + var(--link-gutter));
+  background: #45b9c8;
+}
+.more-section .home-link-faq {
+  margin-right: -80px;
+  padding-right: calc(80px + var(--link-gutter));
+  background: #e65097;
+}
+.home-link-content {
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
+  transform: skewX(10deg);
+}
+.home-link-label { font: 800 13px/1.5 var(--display-font); letter-spacing: .14em; }
+.home-link h2 { font: 900 clamp(28px, 2.7vw, 46px)/1.3 var(--display-font); margin: 14px 0; overflow-wrap: anywhere; }
+.home-link p { font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
+.home-link-arrow { display: flex; margin-top: 24px; font-size: 32px; transition: translate .6s var(--ease); }
+.more-section .home-link:focus-visible { flex-grow: 1.35; outline: none; }
+.home-link:focus-visible .home-link-content { outline: 3px solid white; outline-offset: 12px; }
+@media (hover: hover) and (pointer: fine) {
+  .more-section .home-link:hover { flex-grow: 1.35; }
+  .home-link:hover .home-link-arrow { translate: 6px -6px; }
+}
+@media (max-width: 600px) {
+  .section.more-section { --link-gutter: 28px; flex-direction: column; }
+  .more-section .home-link { flex: auto; padding: 38px var(--link-gutter); min-height: 230px; transform: skewY(-6deg); }
+  .more-section .home-link-about { margin: -40px 0 0; padding-top: 78px; }
+  .more-section .home-link-faq { margin: 0 0 -40px; padding-bottom: 78px; }
+  .home-link-content { transform: skewY(6deg); }
+  .home-link-label { font-size: 11px; letter-spacing: .1em; }
+  .home-link h2 { font-size: 28px; margin-block: 12px; }
+  .home-link p { font-size: 14px; line-height: 1.7; }
+  .home-link-arrow { font-size: 26px; margin-top: 18px; }
+  .more-section .home-link:focus-visible { flex-grow: 1; }
+  .home-link:focus-visible .home-link-content { outline-offset: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .more-section .home-link, .home-link-arrow { transition: none; }
+}

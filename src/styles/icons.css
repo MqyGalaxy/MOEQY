@@ -1,0 +1,28 @@
+/* SVGs share a square em box. Inline prose uses a baseline offset; icon-only
+   wrappers use flex/grid centering so line-height never adds empty space. */
+.ui-icon { display: inline-block; width: 1em; height: 1em; flex: 0 0 auto; font-size: inherit; font-style: normal; font-weight: 400; line-height: 1; letter-spacing: 0; vertical-align: -.125em; fill: currentColor; pointer-events: none; }
+.pill-button > span:has(> .ui-icon), .header-language > span:has(> .ui-icon),
+.hero-kicker > span:has(> .ui-icon), .little-cross, .art-spark,
+.social-links a, .pickup-read-more > span, .pickup-graphic-caption > i {
+  display: inline-flex; align-items: center; justify-content: center; line-height: 1;
+}
+.social-links .ui-icon { font-size: 23px; }
+.language-picker summary { display: flex; align-items: center; gap: .4em; }
+.section-label > span:last-child, .works-poster-bottom > span:last-child {
+  display: inline-flex; align-items: center; gap: .5em;
+}
+.ui-arrow-right { rotate: 180deg; }
+.ui-arrow-up { rotate: 90deg; }
+.ui-arrow-down { rotate: -90deg; }
+.ui-diagonal-down { rotate: 90deg; }
+.pill-button > .ui-icon { font-size: 20px; }
+.notice-mark { border: 0; font-style: normal; font-size: 22px; }
+.faq-panel summary > .faq-expand, .faq-panel summary > .faq-collapse { margin-left: auto; flex-shrink: 0; }
+.faq-panel summary .ui-icon { color: var(--pink); font-size: 20px; }
+.faq-panel summary .faq-collapse, .faq-panel details[open] summary .faq-expand { display: none; }
+.faq-panel details[open] summary .faq-collapse { display: inline-block; }
+[data-work-play-icon] { display: inline-flex; align-items: center; }
+[data-work-play-icon][data-paused="true"] .work-pause-icon,
+[data-work-play-icon]:not([data-paused="true"]) .work-resume-icon { display: none; }
+.work-pause-icon, .work-resume-icon { display: inline-flex; }
+@media (max-width:600px) { .notice-mark { font-size: 18px; } }

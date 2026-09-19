@@ -1,0 +1,64 @@
+[
+  {
+    "id": "newyear-2024",
+    "source": "original-event",
+    "poster": "/img/blog.jpg",
+    "video": "/img/MyBlog2024.webm"
+  },
+  {
+    "id": "conceptsgame",
+    "poster": "/img/conceptsgamebackground.png",
+    "href": "/conceptsgame/",
+    "text": {
+      "zh-CN": {
+        "title": "CONCEPTS GAME，让灵感开始冒险。",
+        "category": "作品",
+        "status": "筹备中",
+        "description": "从一个念头出发，探索游戏、世界与故事的更多可能。Concepts Game 正在筹备中，期待与你分享下一步的创作。",
+        "cta": "探索概念游戏"
+      },
+      "en": {
+        "title": "CONCEPTS GAME. Every idea begins an adventure.",
+        "category": "PROJECT",
+        "status": "IN PREPARATION",
+        "description": "Starting with a spark of an idea, we are exploring new possibilities for games, worlds and stories. Concepts Game is in preparation. We look forward to sharing the next step with you.",
+        "cta": "Explore the project"
+      },
+      "ja": {
+        "title": "CONCEPTS GAME。ひらめきから、冒険がはじまる。",
+        "category": "作品",
+        "status": "準備中",
+        "description": "ひとつのアイデアを出発点に、ゲーム、世界、物語の可能性を探していく。Concepts Gameは現在準備中です。次の創作を皆さんと分かち合える日を楽しみにしています。",
+        "cta": "プロジェクトを見る"
+      }
+    }
+  },
+  {
+    "id": "myblog-stories",
+    "poster": "/img/footerCover.png",
+    "href": "https://blog.moeqy.com/",
+    "text": {
+      "zh-CN": {
+        "title": "在 MyBlog，收集热爱的每一页。",
+        "category": "博客",
+        "status": "LIFE & CREATION",
+        "description": "把日常的发现、学习的心得与创作的片段慢慢写下来。从 ACGN 到网页制作，在 MyBlog 看看作品背后的故事，也留下一点属于你的声音。",
+        "cta": "前往博客"
+      },
+      "en": {
+        "title": "MyBlog. A little more of what I love.",
+        "category": "BLOG",
+        "status": "LIFE & CREATION",
+        "description": "A place for everyday discoveries, things I learn and fragments of creativity. From ACGN to web design, explore the stories behind the work on MyBlog and leave a little of your own voice.",
+        "cta": "Visit the blog"
+      },
+      "ja": {
+        "title": "MyBlogで、好きなものを一ページずつ。",
+        "category": "ブログ",
+        "status": "LIFE & CREATION",
+        "description": "日々の発見、学んだこと、創作のかけらを少しずつ書き留めています。ACGNからウェブ制作まで、MyBlogで作品の裏側にある物語をのぞいて、あなたの声も聞かせてください。",
+        "cta": "ブログへ"
+      }
+    }
+  }
+]

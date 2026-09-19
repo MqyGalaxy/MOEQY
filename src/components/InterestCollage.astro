@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import { ui, translations, type Lang } from '../lib/content';
+import { interests, interestImage } from '../lib/interests';
+import '../styles/introduction.css';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = translations[lang].index.detailed;
+---
+<div class="interest-collage" data-tabs>
+  <div class="collage-heading"><h3>{t.title}</h3><span>{ui(lang, 'A FEW THINGS I LOVE', '喜欢，是创作的开始。')}</span></div>
+  <div class="interest-tabs" role="tablist" aria-label={t.title}>
+    {interests.map((item, i) => <button type="button" role="tab" id={`interest-tab-${item.id}`} aria-controls={`interest-${item.id}`} aria-selected={i === 0} tabindex={i === 0 ? 0 : -1} style={`--topic-color:${item.color};--topic-paper:${item.paper}`}>
+      <img src={interestImage(item.mood)} width="1024" height="1024" alt="" loading="lazy" decoding="async" />
+      <span>{t.menu[item.id]}</span><small aria-hidden="true" data-original-font="body">{String(i + 1).padStart(2, '0')}</small>
+    </button>)}
+  </div>
+  <div class="interest-stage">
+    {interests.map((item, i) => <div class="interest-panel" id={`interest-${item.id}`} role="tabpanel" aria-labelledby={`interest-tab-${item.id}`} style={`--topic-color:${item.color};--topic-paper:${item.paper}`}>
+      <div class="interest-art" aria-hidden="true">
+        <span class="interest-color-paper"></span><span class="interest-dot-paper"></span><span class="interest-tape"></span>
+        <span class="interest-art-label">{item.label}</span>
+        <img src={interestImage(item.mood)} width="1024" height="1024" alt="" loading="lazy" decoding="async" />
+        <span class="interest-seal"><Icon name="heart" /></span>
+      </div>
+      <div class="interest-sheet">
+        <div class="interest-sheet-meta" data-original-font="body"><span>PAINT THE FRAGMENTS OF DREAMS</span><span>{String(i + 1).padStart(2, '0')} / 04</span></div>
+        <h4>{t.menu[item.id]}<span aria-hidden="true">.</span></h4>
+        <p>{t[item.id].text}</p>
+        <div class="interest-sheet-footer" aria-hidden="true"><span>MOEQY</span><Icon name="heart" /></div>
+      </div>
+    </div>)}
+  </div>
+</div>

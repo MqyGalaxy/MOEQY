@@ -1,0 +1,7 @@
+---
+import MascotSticker from './MascotSticker.astro';
+import type { MascotMood } from '../lib/mascots';
+interface Props { title: string; subtitle?: string; eyebrow?: string; article?: boolean; mascot?: MascotMood; }
+const { title, subtitle, eyebrow = 'MOEQY / PERSONAL WEBSITE', article = false, mascot } = Astro.props;
+---
+<header class:list={['page-heading', { 'article-heading': article, 'has-mascot': !!mascot }]}><div class="page-heading-copy"><slot name="breadcrumb" />{!article && <div class="eyebrow" data-original-font={/^[\x20-\x7e]+$/.test(eyebrow) ? 'body' : undefined}>{eyebrow}</div>}<h1>{title}{!article && <span class="pink">.</span>}</h1>{subtitle && <p>{subtitle}</p>}<slot /></div>{mascot && <MascotSticker mood={mascot} />}</header>

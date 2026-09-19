@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125" height="125" viewBox="0 0 125 125">
+  <!-- Same angular silhouette as icon/heart.svg, with a quiet paper tint. -->
+  <g fill="#fff1f6">
+    <path transform="translate(68 34) scale(.65)" d="M0 11 10 0 17 7 24 0 34 11 17 28Z"/>
+    <circle cx="17" cy="105" r="5.2"/>
+  </g>
+</svg>

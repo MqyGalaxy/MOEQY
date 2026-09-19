@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import InterestCollage from './InterestCollage.astro';
+import { translations, link, type Lang } from '../lib/content';
+interface Props { lang: Lang; }
+const {lang}=Astro.props; const en=lang==='en'; const t=translations[lang];
+---
+<section id="introduction" class="section about-section">
+  <div class="section-label" data-original-font="body"><span>02 / INTRODUCTION</span><span>A LITTLE ABOUT MOEQY <Icon name="heart" /></span></div>
+  <div class="section-heading reveal"><h2>ABOUT<span class="pink">.</span></h2><p>{t.index.about.title}</p></div>
+  <div class="intro-overview">
+    <div class="intro-statement reveal"><span class="eyebrow" data-original-font="body">WELCOME TO OUR LITTLE WORLD</span><h3>{lang === 'ja' ? <>好きなことを、<br />少しずつ<br /><em>かたちに。</em></> : en ? <>Creating.<br />Learning.<br /><em>Growing.</em></> : <>把喜欢的事，<br />一点一点<br /><em>变成作品。</em></>}</h3></div>
+    <div class="intro-copy reveal"><p>{t.index.about.text1}</p><p>{t.index.about.text2}</p><a class="pill-button feature-button" href={link(lang, 'about')}>{t.menu.about}<span aria-hidden="true"><Icon name="arrow" direction="up-right" /></span></a></div>
+  </div>
+  <InterestCollage lang={lang} />
+</section>

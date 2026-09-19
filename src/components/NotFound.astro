@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+import MascotSticker from './MascotSticker.astro';
+import { ui, link, type Lang } from '../lib/content';
+interface Props { lang: Lang; }
+const {lang}=Astro.props; ---
+<section class="error-page"><div class="eyebrow" data-original-font="body">MOEQY / LOST IN A LITTLE DREAM</div><div class="error-number"><span data-original-font="body">404</span><MascotSticker mood="cry" /></div><h1 data-original-font="body">Not Found</h1><p>{ui(lang, 'Sorry, the page you are looking for does not exist!', '对不起，您要找的页面不存在！')}</p><a class="pill-button" href={link(lang)}>{ui(lang, 'Back to Home', '返回主页')} <Icon name="arrow" direction="up-right" /></a></section>

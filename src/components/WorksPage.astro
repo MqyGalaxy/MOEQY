@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+import StoreAccent from './StoreAccent.astro';
+import WorksShowcase from './WorksShowcase.astro';
+import WorkCard from './WorkCard.astro';
+import { works, selectWorks, workText, type Work } from '../lib/works';
+import { ui, type Lang } from '../lib/content';
+import '../styles/work-pages.css';
+interface Props { lang: Lang; items?: Work[]; }
+const { lang, items = works } = Astro.props;
+const visible = selectWorks(items);
+const categories = [...new Set(visible.map(work=>workText(work,lang).category))];
+---
+<header class="works-store-heading">
+  <div class="store-title-lockup"><div><span class="store-eyebrow">MOEQY COLLECTION</span><h1>WORKS<span aria-hidden="true">.</span></h1></div><StoreAccent /></div>
+  <div class="store-heading-copy"><p>{ui(lang, 'Discover something you love.', '发现喜欢，收藏灵感。')}</p><a href="#all-works-heading">{ui(lang, 'Browse all works', '浏览全部作品')} <Icon name="arrow" direction="right" /></a></div>
+</header>
+<WorksShowcase lang={lang} items={items} placement="page" />
+<section class="section works-directory" data-work-catalog aria-labelledby="all-works-heading">
+  <div class="works-directory-heading"><div><span data-original-font="body">THE COLLECTION</span><h2 id="all-works-heading">{ui(lang, 'All works', '全部作品')}</h2></div><span class="catalog-count" aria-live="polite"><b data-catalog-count data-original-font="body">{visible.length}</b> {ui(lang, 'works', '件作品')}</span></div>
+  {visible.length ? <>
+    <div class="catalog-tools" data-catalog-tools hidden>
+      <div class="catalog-categories" role="group" aria-label={ui(lang, 'Work category', '作品分类')}><button type="button" data-category-filter="" aria-pressed="true">{ui(lang, 'All', '全部')}</button>{categories.map(category=><button type="button" data-category-filter={category} aria-pressed="false">{category}</button>)}</div>
+      <div class="catalog-fields"><label class="catalog-search"><span>{ui(lang, 'Search works', '搜索作品')}</span><input type="search" data-catalog-search placeholder={ui(lang, 'Name or keyword…', '输入名称或关键词…')} /></label><label class="catalog-sort"><span>{ui(lang, 'Sort by', '排序')}</span><select data-catalog-sort><option value="default">{ui(lang, 'Collection order', '默认顺序')}</option><option value="name">{ui(lang, 'Name A–Z', '按名称排序')}</option></select></label></div>
+    </div>
+    <ul class="work-card-grid" data-catalog-grid>{visible.map(work=><WorkCard work={work} lang={lang} />)}</ul>
+    <div class="catalog-empty" data-catalog-empty hidden><p>{ui(lang, 'No matching works. Try another keyword or category.', '暂未找到匹配作品，试试其他关键词或分类。')}</p><button type="button" data-catalog-reset>{ui(lang, 'Reset filters', '重置筛选')} <Icon name="arrow" direction="right" /></button></div>
+  </> : <p class="empty-state">{ui(lang, 'New creations are on the way.', '新的作品正在准备中。')}</p>}
+</section>
+<script>import '../scripts/work-store';</script>

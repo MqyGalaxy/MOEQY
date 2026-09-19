@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+import { ui, postLink, type Post, type Lang } from '../lib/content';
+interface Props { posts: Post[]; lang: Lang; }
+const { posts, lang } = Astro.props;
+---
+<div class="news-list">{posts.map((post,i) => <a class="news-row reveal" href={postLink(post,lang)}><span class="news-index">{String(i+1).padStart(2,'0')}</span><time datetime={post.date}>{post.date.replaceAll('-','.')}</time><span class:list={['tag', { 'tag-blue': ['chanpin','products'].includes(post.categorySlug) }]}>{post.category || (ui(lang, 'Notes', '随记'))}</span><div><h3>{post.title}</h3><p>{post.excerpt}</p></div><span class="news-arrow"><Icon name="arrow" direction="up-right" /></span></a>)}</div>

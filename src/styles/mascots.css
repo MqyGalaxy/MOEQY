@@ -1,0 +1,29 @@
+/* Decorative stickers stay in reserved layout space, never above controls. */
+.mascot-sticker { --sticker-tilt: -6deg; position: relative; display: block; width: 160px; aspect-ratio: 1; flex: 0 0 auto; isolation: isolate; pointer-events: none; user-select: none; }
+.mascot-sticker::before { content: ''; position: absolute; inset: 20% 0 0 8%; z-index: -1; border-radius: 50%; background: radial-gradient(#e7b7ce 1px,transparent 1px) 0 0/7px 7px,#fdeef5; }
+.mascot-sticker::after { content: ''; position: absolute; bottom: 2%; left: 12%; width: 46%; height: 12px; z-index: -1; background: #bfe9eb; rotate: -9deg; }
+.mascot-sticker img { width: 100%; height: 100%; object-fit: contain; transform: rotate(var(--sticker-tilt)); }
+.mascot-thinking, .mascot-good { --sticker-tilt: 5deg; }
+.mascot-cat::before, .mascot-good::before { background-color: #eef9f8; }
+.mascot-cat::after, .mascot-good::after { background: #f6b9d1; }
+.page-heading.has-mascot { display: grid; grid-template-columns: minmax(0,1fr) clamp(150px,18vw,225px); gap: 36px; align-items: center; }
+.page-heading.has-mascot h1 { overflow-wrap: anywhere; }
+.page-heading>.mascot-sticker { width: 100%; }
+.article-back { display: flex; gap: 24px; justify-content: space-between; align-items: center; }
+.article-back>.mascot-sticker { width: 125px; margin-right: 20px; }
+.error-number { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.error-number>.mascot-sticker { width: clamp(110px,17vw,205px); }
+
+@media(max-width:900px) {
+  .page-heading.has-mascot { gap: 24px; grid-template-columns: minmax(0,1fr) 150px; }
+}
+@media(max-width:600px) {
+  .page-heading.has-mascot { position: relative; display: block; padding-top: 175px; }
+  .page-heading>.mascot-sticker { position: absolute; width: 86px; right: var(--gutter); top: 86px; }
+  .article-back { gap: 12px; }
+  .article-back>.mascot-sticker { width: 76px; margin-right: 0; }
+  .error-number { gap: 10px; }
+  .error-number>.mascot-sticker { width: 90px; }
+}
+@media(max-width:360px) {
+}

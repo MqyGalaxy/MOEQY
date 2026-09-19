@@ -1,0 +1,228 @@
+config:
+  title: MOEQY
+  description: Paint The Fragments of Dreams~
+
+language: English
+helpTranslate: Help us translate
+
+#主页
+menu:
+  home: Home
+  news: News
+  about: About Us
+
+#页底
+footer:
+  directory:
+    label: Footer navigation
+    explore: Discover MOEQY
+    works: Works & projects
+    support: Help & services
+    connect: Follow & contact
+  link:
+    friends: Links
+    about: About Us
+    privacy: Privacy
+  content:
+    text1: "This website is personal and is not used for any commercial activities."
+    text2: "Contact: mail#moeqy.com (please change # to @)."
+  copyright:
+    text1: "©MOEQY | moeqy.com | by MqyGalaxy"
+    text2: "Powered by"
+    text3: " "
+
+#主页
+index:
+  tag:
+    media: Media
+    product: Product
+    news: News
+  title: "Happy the Year of the Dragon!"
+  text: "MqyGalaxy|Blog \"The New Year Event\" is now open. If you participate in
+    the New Year event, you can get the blog's Year of the Dragon Yuru-chara
+    \"Xuexia\", \"Yuexuan\", and New Year greeting pictures! Watch the 2023
+    Year-end Summary of MqyGalaxy|Blog to learn about the footprints left by the
+    blog last year. Thanks for meeting you~!"
+
+  about:
+    title: "About MOEQY"
+    text1: "MOEQY is a personal website built and managed by MqyGalaxy. Here for
+      practicing techniques and sharing things we love! We committed to ACG
+      (Anime, Comics, Games), Video Production, MMD, Web Design, etc."
+    text2: "MOEQY collects our growth step by step. Publish our own learning
+      experience and works here, and share more things with everyone."
+  detailed:
+    title: "INTERESTS & CREATION"
+    menu:
+      acgn: ACGN
+      video: Media
+      game: Game
+      more: More
+    acgn:
+      text: "ACGN is generally interpreted as the collective abbreviation of Anime,
+        Comics, Games, and Novels. ACGN is a vibrant subcultural community.
+        MOEQY has been actively creating works related to ACG."
+    video:
+      text: "Today, personal media and internet video have gradually become the
+        mainstream way for people to disseminate and understand information.
+        People also prefer platforms that allow them to create freely."
+    game:
+      text: "Game is also known as the art. Now, games have become a new way for
+        people to create. Many excellent creators create information worlds,
+        allowing players to experience the stories they want to express."
+    more:
+      text: "MOEQY will learn more knowledge!"
+  window:
+    text: "Privacy Policy updated (July 8, 2025)."
+    link: " Click here"
+    end: " to view."
+
+  news: News
+
+  products: Products
+  works:
+    myblog:
+      title: MyBlog(MqyGalaxy|Blog)
+      text: "MqyGalaxy|Blog is my personal blog, you can check more articles and news
+        here."
+    conceptsgame:
+      title: CONCEPTS GAME
+      text: Coming Soon...
+
+  blog:
+    title: Blog
+    text: "Get more interesting things in our blog!"
+
+  bottom:
+    box1:
+      title: About Us
+      text: "On the paper of memories, Paint the fragments of dreams."
+    box2:
+      title: Support
+      text: "Frequently Asked Questions and Answers"
+
+  #按钮
+  botton:
+    more: More
+    news: More News
+    blog: Visit
+    view: View
+
+#文章
+article:
+  backArchive: Back
+  morePost: Latest News
+
+archive:
+  all: All
+  news: News
+  products: Products
+
+#关于我们
+aboutus: About Us
+ui:
+  WELCOME TO MOEQY: WELCOME TO MOEQY
+  A little home for ACGN, creativity and everything I love.: A little home for ACGN, creativity and everything I love.
+  By MqyGalaxy. Thanks for meeting you!: By MqyGalaxy. Thanks for meeting you!
+  Explore my world: Explore my world
+  MOEQY character illustration: MOEQY character illustration
+  "Tag ": "Tag "
+  News categories: News categories
+  No posts in this archive yet.: No posts in this archive yet.
+  Pagination: Pagination
+  Page: Page
+  The homepage is now built with Astro. The original story and credits below are preserved from MOEQY 3.0.:
+    The homepage is now built with Astro. The original story and credits below
+    are preserved from MOEQY 3.0.
+  Frequently Asked Questions and Answers: Frequently Asked Questions and Answers
+  FAQ categories: FAQ categories
+  Feedback & Contact: Feedback & Contact
+  For suggestions or questions, contact me by email. You can also leave a message on my blog.:
+    For suggestions or questions, contact me by email. You can also leave a
+    message on my blog.
+  Send an email: Send an email
+  Leave a message: Leave a message
+  Frequently Asked Questions: Frequently Asked Questions
+  Concepts Game is in preparation. Stay tuned.: Concepts Game is in preparation. Stay tuned.
+  About Us: About Us
+  See you on the blog.: See you on the blog.
+  Close video: Close video
+  Watch on bilibili: Watch on bilibili
+  Latest news: Latest news
+  A FEW THINGS I LOVE: A FEW THINGS I LOVE
+  Notes: Notes
+  Sorry, the page you are looking for does not exist!: Sorry, the page you are looking for does not exist!
+  Back to Home: Back to Home
+  Explore this PICK UP: Explore this PICK UP
+  Featured film: Featured film
+  Read full introduction: Read full introduction
+  The full story: The full story
+  Explore my works: Explore my works
+  Choose a PICK UP: Choose a PICK UP
+  Pause PICK UP rotation: Pause PICK UP rotation
+  View the event: View the event
+  Read more: Read more
+  Privacy update: Privacy update
+  Dismiss notice: Dismiss notice
+  Close introduction: Close introduction
+  View details: View details
+  Project visual: Project visual
+  Brand logo: Brand logo
+  Breadcrumb: Breadcrumb
+  Home: Home
+  All works: All works
+  Choose a product image: Choose a product image
+  Collection: Collection
+  Destination: Destination
+  Project page: Project page
+  External website: External website
+  Work links: Work links
+  Back to all works: Back to all works
+  Explore the details: Explore the details
+  On this page: On this page
+  Overview: Overview
+  More to discover: More to discover
+  A closer look: A closer look
+  View all: View all
+  Discover something you love.: Discover something you love.
+  Browse all works: Browse all works
+  works: works
+  Work category: Work category
+  All: All
+  Search works: Search works
+  Name or keyword…: Name or keyword…
+  Sort by: Sort by
+  Collection order: Collection order
+  Name A–Z: Name A–Z
+  No matching works. Try another keyword or category.: No matching works. Try another keyword or category.
+  Reset filters: Reset filters
+  New creations are on the way.: New creations are on the way.
+  Featured works: Featured works
+  Previous work: Previous work
+  Next work: Next work
+  Choose a work: Choose a work
+  Pause slideshow: Pause slideshow
+  Pause: Pause
+  View all works: View all works
+  NetEase Music: NetEase Music
+  Skip to content: Skip to content
+  Open menu: Open menu
+  Close menu: Close menu
+  Main navigation: Main navigation
+  On the paper of memories,: On the paper of memories,
+  Paint the fragments of dreams.: Paint the fragments of dreams.
+  Back to top: Back to top
+  FAQ & Support: FAQ & Support
+  Feedback: Feedback
+  MOEQY Passport: MOEQY Passport
+  Close: Close
+  Internal testing: Internal testing
+  MOEQY Passport is currently for internal testing only. Registration is not open. You do not need an account to use MOEQY.:
+    MOEQY Passport is currently for internal testing only. Registration is not
+    open. You do not need an account to use MOEQY.
+  About MOEQY Passport: About MOEQY Passport
+  FAQ: FAQ
+  WORKS: WORKS
+  Watch the 2023 year-end video: Watch the 2023 year-end video
+  No posts in this archive yet. (2): No posts in this archive yet.
+  More to discover (2): More to discover

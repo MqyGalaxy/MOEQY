@@ -1,0 +1,83 @@
+[
+  {
+    "title": "首页",
+    "questions": [
+      {
+        "question": "这里是哪？",
+        "answer": "<p>这里是 MoeQY ，是一个个人网站！小站不定时更新一些学习和ACGN等爱好内容。</p>"
+      },
+      {
+        "question": "“我们”是谁？MoeQY 不是个人网站吗？",
+        "answer": "<p><code>我们</code> 就是我（站长），在一些语境中使用“我们”会更加通顺。<br>您也可以将“我们”理解为 MoeQY 的代称。</p>\n\t\t\t\t\t\t\t\t  <p>MoeQY 目前只有一个人制作和维护。</p>"
+      },
+      {
+        "question": "MoeQY 需要账号吗？我该如何注册账号？",
+        "answer": "<p>在 MoeQY 浏览时，您不需要注册或者绑定任何账号。您只需要一个昵称、一个电子邮箱（选填）和个人博客网址（选填）使用评论功能。</p>\n\t\t\t\t\t\t\t\t  <p>MOEQY通行证 目前仅用于内部测试使用，仍在搭建完善中。您也不需要注册通行证也能正常使用 MoeQY 的服务。</p>"
+      },
+      {
+        "question": "关于 moeqy.com 的系列站点",
+        "answer": "<p>关于 moeqy.com 的系列站点（如 blog.moeqy.com ），请前往相应站点查看。</p>"
+      }
+    ]
+  },
+  {
+    "title": "视频",
+    "questions": [
+      {
+        "question": "MoeQY 所展示的视频是什么？",
+        "answer": "<p>MoeQY 所展示的视频，没有特殊声明均来自于 bilibili 个人用户 <a href=\"https://space.bilibili.com/147114872\" target=\"_blank\" title=\"bilibili-常撞名的Mqy_Galaxy\">常撞名的Mqy_Galaxy</a> 。</p>"
+      },
+      {
+        "question": "为什么在 MoeQY 浏览的视频画质不高？我无法更改更高的画质。",
+        "answer": "<p>MoeQY 所使用的视频播放器来自 bilibili 的 <code>&lt;iframe&gt;</code> 嵌入式视频。到目前为止播放器限制最高的画质仅达到720P。</p>\n\t\t\t\t\t\t\t\t  <p>如需使用更高的画质，可以点击视频的标题链接至 bilibili 获得最佳观影体验。</p>"
+      },
+      {
+        "question": "我能够转载 MoeQY 里所展示的视频吗？",
+        "answer": "<p>在 MoeQY 中使用的视频，未经原作者允许严禁转载。转载后请标注原出处。<br>如若使用 <code>&lt;iframe&gt;</code> 嵌入页面引用于博客文章/wiki制作，我（<a href=\"https://space.bilibili.com/147114872\" target=\"_blank\" title=\"bilibili-常撞名的Mqy_Galaxy\">常撞名的Mqy_Galaxy</a>）个人的视频可以不需要经过允许，但是请标注原出处。</p>\n\t\t\t\t\t\t\t\t  <p>请注意 MoeQY 中所有作品严禁使用于商业性质用途。视频严禁使用于营销号。<br>详情请参考 <a href=\"https://blog.moeqy.com/cc/\" target=\"_blank\">https://blog.moeqy.com/cc/</a> 中 <code>例外情况 &gt; 我的视频</code> 。</p>"
+      }
+    ]
+  },
+  {
+    "title": "隐私",
+    "questions": [
+      {
+        "question": "MoeQY 会收集我的信息吗？",
+        "answer": "<p>详情请见 MoeQY 的 <a href=\"/privacy/\" target=\"_blank\">隐私协议</a> 。</p>"
+      },
+      {
+        "question": "如果隐私协议更新，我该如何查看最新的隐私协议？",
+        "answer": "<p>当隐私协议更新时，我们会将在首页进行公告，请注意查看。</p>"
+      },
+      {
+        "question": "隐私协议更新后，我能查看以前的版本吗？",
+        "answer": "<p>隐私协议有效版本为最新版本。一部分重要的版本将会留下以供参考。</p>"
+      }
+    ]
+  },
+  {
+    "title": "反馈",
+    "questions": [
+      {
+        "question": "我该如何联系站长/MoeQY",
+        "answer": "<p>您可以使用电子邮箱发送至 mail#moeqy.com 。<br>或者在“关于本站”中查看其他联系方式。</p>\n\t\t\t\t\t\t\t\t  <p>如果没有非常重要的事情，也可以前往 <a href=\"https://blog.moeqy.com/talk/\" target=\"_blank\">https://blog.moeqy.com/talk/</a> 向我留言。</p>"
+      }
+    ]
+  },
+  {
+    "title": "其他",
+    "questions": [
+      {
+        "question": "为什么我的浏览器无法正常加载网页？",
+        "answer": "<p>可能是您正在使用的浏览器不支持 MoeQY 相关配置，请检查浏览器版本的兼容性。</p>\n\t\t\t\t\t\t\t\t  <p>推荐使用 Chrome、Edge 等持续更新或新型的浏览器。</p>"
+      },
+      {
+        "question": "首页的访问人数准确吗？",
+        "answer": "<p>首页的计数器来自：<a href=\"https://github.com/journey-ad/Moe-counter/\" title=\"Moe-counter by journey-ad - GitHub\" target=\"_blank\">Moe-counter</a> ，<br>记数的大致原理是你加载这张图片时它就会更新一位数。</p>\n\t\t\t\t\t\t\t\t  <p>该计数器于2021年9月21日添加，仅供参考。</p>"
+      },
+      {
+        "question": "为什么喜欢在这些地方写这么多东西？",
+        "answer": "<p>因为我喜欢。(o゜▽゜)o☆</p>"
+      }
+    ]
+  }
+]

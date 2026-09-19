@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+---
+<div class="dream-ticker" aria-hidden="true">
+  <div class="dream-ticker-track">
+    {Array.from({ length: 2 }, () => <div class="dream-ticker-group">
+      {Array.from({ length: 8 }, () => <div class="dream-ticker-item">
+        <span>MOEQY</span><Icon name="heart" />
+        <span>PAINT THE FRAGMENTS OF DREAMS</span><Icon name="heart" />
+      </div>)}
+    </div>)}
+  </div>
+</div>
+
+<style>
+  /* Two identical, independently viewport-wide groups: translating one full
+     group always leaves another covering the window, even on ultrawide screens. */
+  .dream-ticker { container-type: inline-size; overflow: hidden; background: var(--pink); color: white; transform: rotate(-1.5deg); margin: -3px -3px 0; position: relative; z-index: 5; padding: 13px 0; font-family: var(--display-font); }
+  .dream-ticker-track { display: flex; width: max-content; animation: dream-ticker-loop 100s linear infinite; }
+  .dream-ticker-group { display: flex; flex: none; justify-content: space-around; min-width: 100cqw; }
+  .dream-ticker-item { display: flex; flex: none; align-items: center; white-space: nowrap; font-size: 18px; font-weight: 800; line-height: 1; letter-spacing: .08em; gap: 34px; padding-right: 34px; }
+  .dream-ticker-item :global(.ui-icon) { display: block; font-size: 23px; }
+  @keyframes dream-ticker-loop { to { transform: translateX(-50%); } }
+  @media (max-width: 600px) {
+    .dream-ticker { padding: 10px 0; }
+    .dream-ticker-item { font-size: 14px; gap: 22px; padding-right: 22px; }
+    .dream-ticker-item :global(.ui-icon) { font-size: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .dream-ticker-track { animation: none; } }
+</style>

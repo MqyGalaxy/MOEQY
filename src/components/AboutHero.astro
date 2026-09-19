@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import DreamTicker from './DreamTicker.astro';
+import { ui, type Lang } from '../lib/content';
+interface Props { lang: Lang; }
+const {lang}=Astro.props; const en=lang==='en';
+---
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div><span class="hero-orbit orbit-one" aria-hidden="true"></span><span class="hero-orbit orbit-two" aria-hidden="true"></span>
+  <div class="hero-word" data-original-font="body" aria-hidden="true">MOEQY</div>
+  <div class="hero-copy"><div class="hero-kicker"><span data-original-font="body">HELLO, WORLD!</span><span><Icon name="heart" /></span> {ui(lang, 'WELCOME TO MOEQY', '欢迎来到，萌趣的小世界')}</div>
+    <h1>{lang === 'ja' ? <><span>思い出の<span class="outline-word">白い紙</span>に、</span><span><span class="pink">夢のかけら</span>を描こう。<span class="title-star"><Icon name="geometric" /></span></span></> : en ? <><span>On the paper</span><span>of memories,</span><span class="pink">paint our dreams<span class="title-star"><Icon name="geometric" /></span></span></> : <><span>在回忆的<span class="outline-word">白纸</span>上，</span><span>绘上<span class="pink">梦想</span>的碎片<span class="title-star"><Icon name="geometric" /></span></span></>}</h1>
+    <p class="hero-subtitle">PAINT THE FRAGMENTS OF DREAMS.</p>
+    <div class="hero-intro"><span class="little-cross"><Icon name="appreciation" /></span><p>{ui(lang, 'A little home for ACGN, creativity and everything I love.', '一个爱好 ACGN 的温馨小窝。')}<br />{ui(lang, 'By MqyGalaxy. Thanks for meeting you!', '记录热爱，分享创作。感谢与您相遇~！')}</p></div>
+    <a class="pill-button" href="#about-content">{ui(lang, 'Explore my world', '一起探索我的世界')} <span><Icon name="arrow" direction="down-right" /></span></a>
+  </div>
+  <div class="hero-art"><div class="character-backdrop" aria-hidden="true"></div><div class="character-lines" aria-hidden="true"></div><img class="hero-character" src="/images/MOEQYgirl.png" alt={ui(lang, 'MOEQY character illustration', 'MOEQY 角色立绘')} fetchpriority="high" width="1086" height="1448" /><span class="art-label" data-original-font="body">CREATIVITY<br />NEVER ENDS.</span><span class="art-spark spark-one" aria-hidden="true"><Icon name="anime" /></span><span class="art-spark spark-two" aria-hidden="true"><Icon name="game" /></span></div>
+  <div class="hero-bottom" data-original-font="body"><a class="scroll-cue" href="#about-content"><span>SCROLL TO DISCOVER</span><b><Icon name="arrow" direction="down" /></b></a><span>ACGN / VIDEO / MMD / WEB DESIGN</span></div>
+</section>
+<DreamTicker />

@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+interface Props { variant?: 'heading' | 'gallery' | 'story'; }
+const { variant = 'heading' } = Astro.props;
+---
+<span class:list={['store-accent', `store-accent--${variant}`]} aria-hidden="true">
+  <span class="store-accent-heart"><Icon name="heart" /></span>
+  <span class="store-accent-triangle"></span>
+</span>
