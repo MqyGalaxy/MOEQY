@@ -1,0 +1,7 @@
+---
+import type { Lang } from '../lib/content';
+import { contactCopy, contactHref, encodedEmail } from '../lib/contact';
+interface Props { lang: Lang; class?: string; title?: string; }
+const { lang, class: className, title } = Astro.props;
+---
+<a class={className} href={contactHref(lang)} data-email={encodedEmail} aria-label={contactCopy[lang].send} title={title}><slot /></a>

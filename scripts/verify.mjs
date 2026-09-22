@@ -8,6 +8,11 @@ import { marked } from 'marked';
 const root = path.resolve('dist');
 const walk = dir => fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);
 const clean = s => s.replace(/\s+/g,'').replaceAll('↗','').trim();
+// Only the intentionally replaced email text is normalized; all other prose
+// still has to match the archive. Contact sections are checked independently.
+const emailCopy = (text, lang) => text
+  .replace(/\s*(?:（请将\s*#\s*改为\s*@）|\(please replace\s*#\s*with\s*@\)|\(please change\s*#\s*to\s*@\)|（#を@に置き換えてください）|请将#修改为@。)/gi, '')
+  .replace(/mail[@#]moeqy\.com/gi, lang === 'en' ? 'Send an email' : '发送邮件');
 const resolveUrl = url => {
   const pathname=decodeURIComponent(new URL(url,'https://www.moeqy.com').pathname);
   const direct=path.join(root,pathname);
@@ -57,7 +62,11 @@ for(const [key,html] of Object.entries(docs)){
   const out=load(fs.readFileSync(resolveUrl(`/${lang==='en'?'en/':''}${segments.join('/')}/`),'utf8'));
   const expected=load(html);
   if(segments.join('/')==='help/translate') expected('.block').filter((_,el)=>expected(el).find('.about-title').text().startsWith('日本語')).find('.block-tag span').text(lang==='en'?'Implemented':'已上线');
-  assert.equal(clean(out('article.prose').text()),clean(expected.text()),`Incomplete document ${key}`);
+  const oldContact = expected('.about-contact').parent('.layout-1');
+  assert.equal(out('.contact-section').length, oldContact.length, `Contact section preserved: ${key}`);
+  oldContact.remove();
+  out('.contact-section').remove();
+  assert.equal(clean(out('article.prose').text()),clean(emailCopy(expected.text(),lang)),`Incomplete document ${key}`);
 }
 const sourcePosts=walk('src/content/posts').filter(f=>f.endsWith('.md')).filter(file=>parse(fs.readFileSync(file,'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]).draft!==true);
 const legacyHtml=JSON.parse(fs.readFileSync('src/data/legacy-post-html.json','utf8'));
@@ -75,7 +84,7 @@ for(const file of sourcePosts){
     const p=load(fs.readFileSync(resolveUrl('/'+prefix+slug+'/'),'utf8'));
     assert.ok(p('h1').text().includes(meta.title),`Article title missing ${slug}`);
     assert.ok(p('article.prose').text().trim().length>0,`Article content missing ${slug}`);
-    assert.equal(clean(p('article.prose').text()),clean(load(expected).text()),`Article content differs from ${original?'legacy snapshot':'current Markdown'}: ${slug}`);
+    assert.equal(clean(p('article.prose').text()),clean(emailCopy(load(expected).text(),prefix ? 'en' : 'zh-CN')),`Article content differs from ${original?'legacy snapshot':'current Markdown'}: ${slug}`);
   }
 }
 const faq=load(fs.readFileSync(resolveUrl('/faq/'),'utf8'));

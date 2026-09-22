@@ -1,4 +1,18 @@
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+// Decode only on activation. Invalid data keeps the native contact-page fallback.
+document.addEventListener('click', event => {
+  if (event.defaultPrevented || event.button !== 0 || !(event.target instanceof Element)) return;
+  const anchor = event.target.closest<HTMLAnchorElement>('a[data-email]');
+  if (!anchor) return;
+  try {
+    const address = atob(anchor.dataset.email || '');
+    if (!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)+$/i.test(address)) return;
+    window.location.assign(`mailto:${address}`);
+    event.preventDefault();
+  } catch {
+    // Navigation to the localized About contact section remains available.
+  }
+});
 if ('IntersectionObserver' in window && !reduced.matches) {
   document.documentElement.classList.add('motion-ready');
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {

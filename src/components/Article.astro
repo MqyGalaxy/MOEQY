@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import { protectContactHtml } from '../lib/contact-html';
 import MascotSticker from './MascotSticker.astro';
 import { link, translations, postsFor, type Lang, type Post } from '../lib/content';
 import PageHeading from './PageHeading.astro';
@@ -8,4 +9,4 @@ interface Props { post: Post; lang: Lang; }
 const { post, lang } = Astro.props; const t=translations[lang];
 ---
 <PageHeading title={post.title} eyebrow="MOEQY / NEWS & STORIES" article><nav slot="breadcrumb" class="breadcrumb"><a href={link(lang)}>{t.menu.home}</a> / <a href={link(lang,'archives')}>{t.index.news}</a></nav><div class="article-meta"><time datetime={post.date}>{post.date}</time>{post.category && <a class="tag" href={link(lang,`categories/${post.categorySlug}`)}>{post.category}</a>}</div></PageHeading>
-<div class="document-wrap"><article class="prose article-reading" lang={post.lang} set:html={post.html} /><div class="article-back"><a class="pill-button small" href={link(lang,'archives')}><Icon name="arrow" /> {t.article.backArchive}</a><MascotSticker mood="good" /></div><aside class="article-related"><div class="eyebrow" data-original-font="body">KEEP EXPLORING</div><h2>{t.article.morePost}</h2><NewsList posts={postsFor(lang).filter(p=>p.slug!==post.slug).slice(0,2)} lang={lang} /></aside></div>
+<div class="document-wrap"><article class="prose article-reading" lang={post.lang} set:html={protectContactHtml(post.html, lang)} /><div class="article-back"><a class="pill-button small" href={link(lang,'archives')}><Icon name="arrow" /> {t.article.backArchive}</a><MascotSticker mood="good" /></div><aside class="article-related"><div class="eyebrow" data-original-font="body">KEEP EXPLORING</div><h2>{t.article.morePost}</h2><NewsList posts={postsFor(lang).filter(p=>p.slug!==post.slug).slice(0,2)} lang={lang} /></aside></div>

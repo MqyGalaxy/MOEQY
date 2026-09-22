@@ -31,21 +31,21 @@ const publicContent=content();
 
 test('Japanese fixed documents reuse the original grids, logos, contact icons and privacy hierarchy',()=>{
   const about=load(read('dist/ja/about/index.html'));
-  assert.equal(about('.prose > .layout-1').length,4);
+  assert.equal(about('.prose > .layout-1').length,3);
   assert.deepEqual(about('.logoList img').map((_,el)=>about(el).attr('src')).get(),['/images/moeqy-logo.svg','/images/conceptsgame-black.png','/images/blogLOGO-2.png']);
   assert.equal(about('.logoList a').first().attr('href'),'/ja/');
   assert.equal(about('.prose .grid').children().length,2);
   assert.equal(about('.title-star use').attr('href'),load(read('dist/about/index.html'))('.title-star use').attr('href'));
   const help=load(read('dist/ja/help/translate/index.html'));
-  assert.equal(help('.prose > .layout-1').length,4);
+  assert.equal(help('.prose > .layout-1').length,3);
   assert.equal(help('.icon-block').length,4);
   assert.equal(help('.icon-title svg use').length,4);
   assert.equal(help('.block').length,4);
   assert.equal(help('.block-tag:not(.block-tag-no-color)').length,3);
   assert.match(help('.block:has(.block-tag-no-color)').text(),/繁體中文/);
   for(const page of [about,help]){
-    assert.deepEqual(page('.about-contact svg use').map((_,el)=>page(el).attr('href')).get(),['github','youxiang','bilibili-fill','wangyiyunyinle'].map(id=>`/img/icon/library.svg#icon-${id}`));
-    assert.equal(page('.about-contact a').length,4);
+    assert.deepEqual(page('.contact-links svg use').map((_,el)=>page(el).attr('href')).get(),['github','youxiang','bilibili-fill','wangyiyunyinle'].map(id=>`/img/icon/library.svg#icon-${id}`));
+    assert.equal(page('.contact-links a').length,4);
     assert.equal(page('.prose .iconfont').length,0);
   }
   const privacy=load(read('dist/ja/privacy/index.html'));
